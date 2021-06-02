@@ -51,19 +51,20 @@
         </nav>
     </div>
 
+    
     <div class="wrapper-flex">
-        {% for program in programs %}
+    {% for program in programs %}    
         <div class="container">
 
             {% if program.image %}
-            <div class='banner-img' id="responsive-img">
+            <div class='banner-img' class="responsive-img">
                 <img src="{{program.image.url}}" alt="" class="responsive-img">
             </div>
             {%else%}
-            <div class='banner-img' id="responsive-img"></div>
-                <img src="{% static '../static/images/providenciales-ilhas-turcos-e-caicos.jpg' %}" alt="" class="responsive-img">
+            <div class='banner-img' class="responsive-img">
+                <img src="{% static '../static/images/cafe.jpg' %}" alt="" class="responsive-img">
             </div>
-            {% endif %}
+             {% endif %}
 
             <div class="description-container">
                 <p class="name" title="{{program.name}}">{{program.name}}</p>
@@ -71,9 +72,9 @@
                 <a href="{{program.link}}">Ingressar</a>
             </div>
         </div>
-        {% endfor %}
+    {% endfor %}    
     </div>
-
+    
     <footer>
         <div class="footer-container">
             <div class="sec aboutus">

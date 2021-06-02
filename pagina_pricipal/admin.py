@@ -1,0 +1,45 @@
+from django.contrib import admin
+from .models import Event, Room, Program, AddIcon, SelectIcon, User, Bdcpf
+
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug":("name",)} 
+    
+     
+@admin.register(Room)
+class RoomAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug":("name",)}
+    
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    #Quais são os atributos da postagem que irá aparecer
+    fields = ("username","last_name","email")
+    
+    list_display = ["username","last_name","email"]
+    
+
+
+admin.site.register(Program)
+
+admin.site.register(Bdcpf)
+
+#admin.site.register(AddIcon)
+#admin.site.register(SelectIcon)
+
+
+"""from django.contrib import admin
+from myapp.models import Article
+
+@admin.action(description='Mark selected stories as published')
+def make_published(modeladmin, request, queryset):
+    queryset.update(status='p')
+
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['title', 'status']
+    ordering = ['title']
+    actions = [make_published]
+
+admin.site.register(Article, ArticleAdmin)"""

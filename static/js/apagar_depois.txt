@@ -1,0 +1,21 @@
+		<li><a href="#">PROGRAMAÇÃO</a></li>
+
+                <li> <a href="{% url 'desopilar' event.slug %}">BORA DESOPILAR</a></li>
+
+                {% for room in rooms %}
+                <li> <a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a> </li>
+                {% endfor %}
+                
+                {% if request.user.is_superuser %}
+                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                {% endif %}
+
+                <li style="color: blue;">{{request.user}}</li>
+
+                <li><form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button  type="submit">Sair</button>
+                </form></li>
+
+
+"{% static '../static/images/original.png' %}"

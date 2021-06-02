@@ -1,0 +1,119 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static '../static/css/plenary.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/footer.css' %}">
+    <title>{{room}}</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="{% static '../static/images/original.png' %}" alt="logo">
+            </div>
+            <ul class="nav-links">
+
+                <li><a href="{% url 'menu' %}">HALL</a></li>
+
+                <li><a href="{% url 'programacao' event.slug %}">PROGRAMAÇÃO</a></li>
+
+                <li> <a href="{% url 'desopilar' event.slug %}">BORA DESOPILAR</a></li>
+
+                {% for room in rooms %}
+                <li> <a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a> </li>
+                {% endfor %}
+                
+                {% if request.user.is_superuser %}
+                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                {% endif %}
+
+                <li><form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button  type="submit">Sair</button>
+                </form></li>
+
+                <li style="color: white;">{{request.user}}</li>
+
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </div>
+    
+    <main class="container">
+        {% for day in sala_days %}
+        <div class="card">
+            <p class="title">Programação {{room.name}}</p>
+            <p class="schedule">Dia {{day}} - 11/07 - 13h30 ás 14:00</p>
+            <a href="{% url 'rooms' event.slug room.slug day %}">Saiba mais</a>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>Sobre Nós</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only</p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quickLinks">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAC</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="sec contact">
+                <h2>Informações para Contato</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span>Rodovia BR-230,KM 22, S/N - Água Fria, João Pessoa</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <p><a href="tel.83999999999">(83) 99999-9999</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <p><a href="mailto:unipemailunipemail@email.com">unipemailunipemail@email.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyrightText">
+        <p>© 2021 Todos os direitos reservados.</p>
+    </div>
+
+
+
+</body>
+<script src="{% static '../static/js/header.js' %}"></script>
+
+</html>

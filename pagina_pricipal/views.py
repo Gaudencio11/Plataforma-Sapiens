@@ -6,25 +6,33 @@ from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon
 
 #not in use at the moment
 
-lista_bd = AutorizedCpfs.objects.all()
-lista_cpf = []
-for item in lista_bd:
-    lista_cpf.append(item.cpf)
+if AutorizedCpfs.objects.all() == True:
+    lista_bd = AutorizedCpfs.objects.all()
+    lista_cpf = []
+    for item in lista_bd:
+        lista_cpf.append(item.cpf)
 
 
 def menuView(request): 
     if not request.user.is_authenticated:
         return redirect('/') 
 
-    if request.user.last_name not in lista_cpf: 
+    if AutorizedCpfs.objects.all() == True:
+        lista_bd = AutorizedCpfs.objects.all()
+        lista_cpf = []
+        for item in lista_bd:
+            lista_cpf.append(item.cpf)
 
-        if request.user.is_superuser:
-            pass
-        else:
-            user_data = [request.user.username, request.user.last_name] 
-            request.user.delete()
-            return redirect('/cpf-invalido/')
-    
+        if request.user.last_name not in lista_cpf: 
+
+            
+            if request.user.is_superuser:
+                pass
+            else:
+                user_data = [request.user.username, request.user.last_name] 
+                request.user.delete()
+                return redirect('/cpf-invalido/')
+        
 
     event = Event.objects.all()[0]
     event_name = event.slug

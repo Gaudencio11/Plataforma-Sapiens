@@ -17,7 +17,7 @@ def menuView(request):
     if not request.user.is_authenticated:
         return redirect('/') 
 
-    if AutorizedCpfs.objects.all() == True:
+    """if AutorizedCpfs.objects.all() == True:
         lista_bd = AutorizedCpfs.objects.all()
         lista_cpf = []
         for item in lista_bd:
@@ -31,7 +31,7 @@ def menuView(request):
             else:
                 user_data = [request.user.username, request.user.last_name] 
                 request.user.delete()
-                return redirect('/cpf-invalido/')
+                return redirect('/cpf-invalido/')"""
         
 
     event = Event.objects.all()[0]

@@ -156,11 +156,11 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_REDIRECT_URL = "/" #testar depois
 
 
-#EMAIL STUFF
+"""#EMAIL STUFF
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'"""
 
 ACCOUNT_USERNAME_REQUIRED = True #Depois mudar pra false
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Room, Program, AddIcon, SelectIcon, User, Bdcpf
+from .models import Event, Room, Program, User, AutorizedCpfs, AddIcon, SelectIcon
 
 
 
@@ -24,7 +24,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(Program)
 
-admin.site.register(Bdcpf)
+admin.site.register(AutorizedCpfs)
 
 #admin.site.register(AddIcon)
 #admin.site.register(SelectIcon)

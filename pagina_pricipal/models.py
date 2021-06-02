@@ -6,8 +6,7 @@ from django.shortcuts import  get_object_or_404
 
 
 
-"""class CustomUser(AbstractUser):
-    cpf = models.CharField(verbose_name='cpf', max_length=11, blank=True)"""
+
 #Mudamos o nome da coluna 'Last_name' para que pudesemos usar ela para guardar a informação do cpf do ususário 
 class User(AbstractUser):
     last_name = models.CharField(db_column='cpf', verbose_name='cpf',  max_length=11, blank=True)
@@ -67,11 +66,11 @@ class Program(models.Model):
         verbose_name = 'Programa'
 
 #Esse models foi criando no processo de desnvolvimento para servir de BD dos cpfs autorizados a acessar o site
-class Bdcpf(models.Model):
-    cpfbd = CharField(max_length=11)
+class AutorizedCpfs(models.Model):
+    cpf = CharField(max_length=11, default=1)
 
     def __str__(self):
-        return self.cpfbd
+        return self.cpf
 
 
 

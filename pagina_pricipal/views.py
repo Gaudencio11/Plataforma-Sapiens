@@ -1,16 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Event, Room, Program, AddIcon, SelectIcon, Bdcpf 
-import json
+from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon
 
-from allauth.account.views import SignupView, PasswordResetDoneView
+
 
 
 #not in use at the moment
 
-lista_bd = Bdcpf.objects.all()
+lista_bd = AutorizedCpfs.objects.all()
 lista_cpf = []
 for item in lista_bd:
-    lista_cpf.append(item.cpfbd)
+    lista_cpf.append(item.cpf)
 
 
 def menuView(request): 
@@ -119,9 +118,6 @@ def cpfinvalido(request):
     return render(request, 'cpf_invalido.html', {})
 
 
-"""def passwordSent(request):
-
-    return redirect("/")"""
 
 
 

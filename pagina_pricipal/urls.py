@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, cpfinvalido #passwordSent
+from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, cpfinvalido, testeStatic1, testeStatic2
 from allauth.account  import views
 
 #Have to configure to all paths use the slug
@@ -21,6 +21,9 @@ urlpatterns = [
     path('<slug:slug1>/<slug:slug2>/dias', daysView, name='days'),
     path('<slug:slug1>/<slug:slug2>/dia-<slug:slug3>/', roomsGenericView, name = 'rooms'),
     path('cpf-invalido/', cpfinvalido, name = 'cpfinvalido'),
+    #Testes
+    path('teste1/',testeStatic1, name='teste1' ),
+    path('teste2/', testeStatic2, name='teste2'),
     
 ]
 

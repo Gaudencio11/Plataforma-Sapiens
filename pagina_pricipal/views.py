@@ -121,9 +121,6 @@ def programacaoView(request, slug1):
     return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
 
 
-def cpfinvalido(request):
-
-    return render(request, 'cpf_invalido.html', {})
 
 def testeStatic1(request):
 

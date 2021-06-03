@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,7 +8,7 @@
     <title>Cadastro</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static '../static/css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     <section class="second-section">
         <div class="container">
             <div class="logo-container">
-                <img src="{% static '../static/images/original.png' %}" alt="Logo">
+                <img src="{% static 'images/original.png' %}" alt="Logo">
             </div>
 
             <form method="POST">

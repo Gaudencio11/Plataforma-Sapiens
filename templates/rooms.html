@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static '../static/css/schedule.css' %}">
-    <link rel="stylesheet" href="{% static '../static/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/schedule.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>{{room}}</title>
 </head>
 
@@ -17,7 +17,7 @@
     <div class="wrapper">
         <nav>
             <div class="logo">
-                <img src="{% static '../static/images/original.png' %}" alt="logo">
+                <img src="{% static 'images/original.png' %}" alt="logo">
             </div>
             <ul class="nav-links">
 
@@ -62,7 +62,7 @@
             </div>
             {%else%}
             <div class='banner-img' class="responsive-img">
-                <img src="{% static '../static/images/cafe.jpg' %}" alt="" class="responsive-img">
+                <img src="{% static 'images/cafe.jpg' %}" alt="" class="responsive-img">
             </div>
              {% endif %}
 
@@ -126,6 +126,6 @@
 
 
 </body>
-<script src="{% static '../static/js/header.js' %}"></script>
+<script src="{% static 'js/header.js' %}"></script>
 
 </html>

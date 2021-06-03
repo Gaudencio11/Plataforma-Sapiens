@@ -125,7 +125,13 @@ def cpfinvalido(request):
 
     return render(request, 'cpf_invalido.html', {})
 
+def testeStatic1(request):
 
+    return render(request, 'teste1.html', {})
+
+def testeStatic2(request):
+
+    return render(request, 'teste2.html', {})
 
 
 

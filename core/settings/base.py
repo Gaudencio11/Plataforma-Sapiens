@@ -136,16 +136,13 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DISABLE_COLLECTSTATIC=1
-
+#DISABLE_COLLECTSTATIC=1
 
 
 
@@ -157,18 +154,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-
-
 LOGIN_REDIRECT_URL = "/hall/" #Nome da view designada em uls.py
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_REDIRECT_URL = "/" #testar depois
 
-
-"""#EMAIL STUFF
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'"""
 
 ACCOUNT_USERNAME_REQUIRED = True #Depois mudar pra false
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true
@@ -187,7 +176,6 @@ AUTH_USER_MODEL = 'pagina_pricipal.User'
 
 #RESET PASSWORD STUFF
 
-#ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 SITE_ID = 1
 

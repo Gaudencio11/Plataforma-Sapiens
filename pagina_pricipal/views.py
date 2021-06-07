@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon
 
+from django.core.mail import send_mail
+
 
 
 
@@ -16,6 +18,8 @@ if AutorizedCpfs.objects.all() == True:
 def menuView(request): 
     if not request.user.is_authenticated:
         return redirect('/') 
+
+    send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com'], fail_silently=False)
 
     """if AutorizedCpfs.objects.all() == True:
         lista_bd = AutorizedCpfs.objects.all()

@@ -144,8 +144,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#DISABLE_COLLECTSTATIC=1
 
+SITE_ID = 1
 
 
 #allauth settings
@@ -176,10 +176,15 @@ ACCOUNT_FORMS = {
 
 AUTH_USER_MODEL = 'pagina_pricipal.User'
 
-#RESET PASSWORD STUFF
+#Email Configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'marcos.teste083@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = '@!es!@nd0'
 
 
-SITE_ID = 1
 
 
 

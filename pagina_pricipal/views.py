@@ -19,7 +19,7 @@ def menuView(request):
     if not request.user.is_authenticated:
         return redirect('/') 
 
-    send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com'], fail_silently=False)
+    """send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com'], fail_silently=False)"""
 
     """if AutorizedCpfs.objects.all() == True:
         lista_bd = AutorizedCpfs.objects.all()

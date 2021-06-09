@@ -10,6 +10,18 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('signup/', views.signup, name='account_signup'),
 
+    #esse serve para abrir a página dizendo que seu email de verificação foi enviado (o mais simples)
+    path(
+        "confirm-email/",
+        views.email_verification_sent,
+        name="account_email_verification_sent",
+    ),
+    #esse serve para realizar o envio do email de confirmação para o usuário
+    re_path(
+        r"^confirm-email/(?P<key>[-:\w]+)/$",
+        views.confirm_email,
+        name="account_confirm_email",
+    ),
 
 
 
@@ -28,18 +40,7 @@ urlpatterns = [
 
 
 """   
-    #esse serve para abrir a página dizendo que seu email de verificação foi enviado (o mais simples)
-    path(
-        "confirm-email/",
-        views.email_verification_sent,
-        name="account_email_verification_sent",
-    ),
-    #esse serve para realizar o envio do email de confirmação para o usuário
-    re_path(
-        r"^confirm-email/(?P<key>[-:\w]+)/$",
-        views.confirm_email,
-        name="account_confirm_email",
-    ),
+    
     
     #Reset password
     path("redefinir-senha/", views.password_reset, name="account_reset_password"

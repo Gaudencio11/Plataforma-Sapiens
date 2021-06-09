@@ -13,3 +13,5 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 DATABASES = {
     "default": env.db(),
 }
+
+#TIME_ZONE = env("TIME_ZONE")

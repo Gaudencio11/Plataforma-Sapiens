@@ -20,7 +20,7 @@ def menuView(request):
         return redirect('/') 
 
 
-    send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com',])
+    """send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com',])"""
 
 
 

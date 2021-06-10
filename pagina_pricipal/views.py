@@ -1,10 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon
+from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon, User
 
 from django.core.mail import send_mail
 
 
+#Excel sheet
+from openpyxl import Workbook, workbook
+from django.http import HttpResponse
+from datetime import datetime
+from datetime import timedelta
 
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Alignment
 
 #not in use at the moment
 
@@ -128,14 +135,79 @@ def programacaoView(request, slug1):
     return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
 
 
+def get_excell_users(request):
+    
+    
 
-def testeStatic1(request):
+    users_list =  User.objects.all()
+
+    response = HttpResponse(
+        content_type='application/ms-excel',
+    )
+    response['Content-Disposition'] = 'attachment; filename={event}-usuarios.xlsx'.format(
+        event = Event.objects.all()[0],
+    )
+    
+    workbook = Workbook()
+
+    worksheet = workbook.active
+    worksheet.title = "Usuários"
+
+    columns = ['posição','Nome completo','Cpf']
+    row_num = 1
+
+    #This atribue value to the columns headers
+    for col_number, column_title in enumerate(columns,1):
+        cell = worksheet.cell(row = row_num, column=col_number)
+        cell.value = column_title
+
+    #Define the data for each cell in the row
+    for user in users_list:
+        row_num +=1
+
+        row=[
+            row_num-1,
+            str(user.username),
+            user.last_name,
+        ]
+
+        for col_number, cell_value in enumerate(row, 1):
+            cell = worksheet.cell(row=row_num, column=col_number)
+            cell.value = cell_value
+            cell.alignment = Alignment(vertical='top', wrap_text=True, horizontal='left')
+
+    #for fix the width of th column
+    dimensions = [7,55, 15,]
+    for col_num, width in enumerate(dimensions, 1):
+        column_letter = get_column_letter(col_num)
+        column_dimensions = worksheet.column_dimensions[column_letter]
+        column_dimensions.width = width
+
+    workbook.save(response)
+
+    return response
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""def testeStatic1(request):
 
     return render(request, 'teste1.html', {})
 
 def testeStatic2(request):
 
-    return render(request, 'teste2.html', {})
+    return render(request, 'teste2.html', {})"""
 
 
 

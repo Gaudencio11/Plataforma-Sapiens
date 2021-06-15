@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Event, Room, Program, AutorizedCpfs, AddIcon, SelectIcon, User
+from .models import Event, Room, Program,  AddIcon, SelectIcon, User
 
 from django.core.mail import send_mail
 
@@ -15,11 +15,11 @@ from openpyxl.styles import Alignment
 
 #not in use at the moment
 
-if AutorizedCpfs.objects.all() == True:
+"""if AutorizedCpfs.objects.all() == True:
     lista_bd = AutorizedCpfs.objects.all()
     lista_cpf = []
     for item in lista_bd:
-        lista_cpf.append(item.cpf)
+        lista_cpf.append(item.cpf)"""
 
 
 def menuView(request): 
@@ -153,7 +153,7 @@ def get_excell_users(request):
     worksheet = workbook.active
     worksheet.title = "Usuários"
 
-    columns = ['posição','Nome completo','Cpf']
+    columns = ['N°','Nome completo','Cpf']
     row_num = 1
 
     #This atribue value to the columns headers

@@ -13,7 +13,22 @@
 
 <body>
     <section class="first-section">
+        <div class="first-container">
+            <div class="logo-sapiens">
+                <img src="{% static 'images/logo-10anos.png' %}" alt="logo 10 anos">
+            </div>
+            <div class="white-line"></div>
+            <div class="logos">
+
+                <img src="{% static 'images/logo-50anos-padronizada.png' %}" alt="logo unipe 50 anos">
+                <img src="{% static 'images/logo-fabrica-padronizada.png' %}" alt=" logo fabrica de software">
+            </div>
+        </div>
+
+
+
     </section>
+
     
     <section class="second-section">
         <div class="container">
@@ -25,12 +40,14 @@
                 {% csrf_token %}
                 <h3>SAPIENS</h3>
                 <div class="input-container">
-                   <!-- <input type="email" id="email" name="email" placeholder="Email">  -->
+                   
                     
                     {{ form.login }}
                     {{ form.password}}
-                    {{form.remember }} 
-                    <!--<input type="password" id="password" name="password" placeholder="Senha"> -->
+                   <p >{{form.remember }}  <span > Me mantenha conectado</span></p> 
+                      
+                    
+                    
                     <p>
                         <a href="#" class="forgot-password">Esqueceu a senha?</a>
                     </p>
@@ -40,7 +57,7 @@
 
             <p class="footer">
                 <a href="{% url 'account_signup' %}" class="footer-text">Não tem uma conta?  <span class="yellow-color"> Cadastre-se</span>
-</a>
+                </a>
             </p>
         </div>
     </section>

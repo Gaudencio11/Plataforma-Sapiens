@@ -1,18 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Alterar senha</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/changepassword1.css' %}">
 </head>
+
 <body>
-    <h1>A verificação foi enviada</h1>
-    <Ul title="O QUE TER AQUI">
-        <li> BOTÃO VOLTAR MENU</li>
-        <LI>BOTÃO SE CADASTRAR</LI>
-        <li>MENSAGEM COM O CONTATO DA COORDENAÇÃO CASO EMAIL NÃO ENVIADO</li>
-        <li>MENSAGEM INFORMANDO PARA CONFERIR EMAIL</li>
-    </Ul>
+    <section class="first-section">
+        <div class="first-container">
+            <div class="logo-sapiens">
+                <img src="{% static 'images/logo-10anos.png' %}" alt="logo 10 anos">
+            </div>
+            <div class="white-line"></div>
+            <div class="logos">
+
+                <img src="{% static 'images/logo-50anos-padronizada.png' %}" alt="logo unipe 50 anos">
+                <img src="{% static 'images/logo-fabrica-padronizada.png' %}" alt=" logo fabrica de software">>
+            </div>
+    </section>
+
+    <section class="second-section">
+        <div class="container">
+            <div class="logo-container">
+                <img src="{% static 'images/original.png' %}" alt="Logo">
+            </div>
+
+            <form action="/event_room.html">
+                <h3>Cadastro</h3>
+                <div class="input-container">
+                    <p>Um e-mail foi enviado, por favor contate-nos caso não receba nos próximos minutos.</p>
+                </div>
+
+                <a href="https://wa.me/message/44GXA6IAP4MOL1">
+                    <button type="button">Contate-nos</button>
+                </a>
+            </form>
+            <p class="footer">
+                <a href="{% url 'account_login' %} " class="footer-text">Voltar Para Tela de Login</a>
+            </p>
+
+        </div>
+    </section>
+
+
 </body>
+
 </html>

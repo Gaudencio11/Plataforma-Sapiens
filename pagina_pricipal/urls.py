@@ -22,7 +22,23 @@ urlpatterns = [
         views.confirm_email,
         name="account_confirm_email",
     ),
-
+    #Reset password
+    path("redefinir-senha/", views.password_reset, name="account_reset_password"
+    ),
+    path(
+        "password/reset/done/",
+        views.password_reset_done,
+        name="account_reset_password_done",
+    ),
+    re_path(
+        r"^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$",
+        views.password_reset_from_key,
+        name="account_reset_password_from_key",),
+    path(
+        "password/reset/key/done/",
+        views.password_reset_from_key_done,
+        name="account_reset_password_from_key_done",
+    ),
 
 
     #site urls

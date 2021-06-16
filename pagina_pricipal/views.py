@@ -161,7 +161,7 @@ def get_excell_users(request):
     worksheet = workbook.active
     worksheet.title = "Usuários"
 
-    columns = ['N°','Nome completo','Curso']
+    columns = ['N°','Nome completo','Cpf']
     row_num = 1
 
     #This atribue value to the columns headers

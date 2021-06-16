@@ -9,7 +9,7 @@ from django.shortcuts import  get_object_or_404
 
 #Mudamos o nome da coluna 'Last_name' para que pudesemos usar ela para guardar a informação do cpf do ususário 
 class User(AbstractUser):
-    last_name = models.CharField(db_column='Curso', verbose_name='Curso',  max_length=11, blank=True)
+    last_name = models.CharField(db_column='curso', verbose_name='curso', max_length = 200, blank=True)
     
 
 

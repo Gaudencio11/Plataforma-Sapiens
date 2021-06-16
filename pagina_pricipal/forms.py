@@ -16,6 +16,9 @@ class CustomSignupForm(SignupForm):
 
     last_name = forms.CharField(max_length=11, label='Curso', widget=forms.TextInput(attrs={"placeholder": "curso"}),)
  
+    
+
+
     def save(self, request):
 
         user = super(CustomSignupForm, self).save(request)

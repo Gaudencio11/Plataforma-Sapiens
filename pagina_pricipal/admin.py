@@ -24,7 +24,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(Program)
 
-admin.site.register(AutorizedCpfs)
+#admin.site.register(AutorizedCpfs)
 
 #admin.site.register(AddIcon)
 #admin.site.register(SelectIcon)

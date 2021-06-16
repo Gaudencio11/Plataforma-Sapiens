@@ -15,4 +15,3 @@ DATABASES = {
 }
 
 #TIME_ZONE = env("TIME_ZONE")
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

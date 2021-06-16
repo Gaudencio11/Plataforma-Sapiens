@@ -49,6 +49,9 @@ def menuView(request):
         
 
     event = Event.objects.all()[0]
+
+    event = "sapiens"
+
     event_name = event.slug
     
     #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
@@ -64,6 +67,7 @@ def daysView(request, slug1, slug2):
         return redirect('/')
 
     event = Event.objects.all()[0]
+    event = "sapiens"
 
     #sala específica que a pessoa entrou
     sala = get_object_or_404(Room, slug=slug2) 
@@ -86,6 +90,7 @@ def roomsGenericView(request, slug1, slug2, slug3):
 
 
     event = Event.objects.all()[0]
+    event = "sapiens"
 
     sala = get_object_or_404(Room, slug=slug2)
 
@@ -111,6 +116,7 @@ def padletView(request, slug1):
 
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
+    event = "sapiens"
 
 
     return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1})
@@ -121,6 +127,7 @@ def desopilarView(request, slug1):
         return redirect('/')
 
     event = Event.objects.all()[0]
+    event = "sapiens"
     rooms = Room.objects.all()  
 
     return render(request, 'desopilar.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
@@ -130,6 +137,7 @@ def programacaoView(request, slug1):
         return redirect('/')
 
     event = Event.objects.all()[0]
+    event = "sapiens"
     rooms = Room.objects.all()  
 
     return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1})

@@ -13,6 +13,20 @@
 
 <body>
     <section class="first-section">
+        <div class="first-container">
+            <div class="logo-sapiens">
+                <img src="{% static 'images/logo-10anos.png' %}" alt="logo 10 anos">
+            </div>
+            <div class="white-line"></div>
+            <div class="logos">
+
+                <img src="{% static 'images/logo-50anos-padronizada.png' %}" alt="logo unipe 50 anos">
+                <img src="{% static 'images/logo-fabrica-padronizada.png' %}" alt=" logo fabrica de software">
+            </div>
+        </div>
+
+
+
     </section>
 
     <section class="second-section">
@@ -25,8 +39,10 @@
                 <h3>Cadastro</h3>
                 <div class="input-container">
                     {% csrf_token %}
-                    {{ form }}
-                    
+                    {{ form.email }}
+                    {{ form.username }}
+                    {{ form.last_name }}
+                    {{ form.password1 }}
                     <div class="checkbox-container">
 
                         <input type="checkbox" id="checkbox" name="checkbox">

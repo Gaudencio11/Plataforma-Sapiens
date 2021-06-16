@@ -14,7 +14,7 @@ class CustomSignupForm(SignupForm):
     #Ainda estamos no processo de entender como realizar a validação desse cpf a partir de um bd
 
 
-    last_name = forms.CharField(max_length=11, label='cpf')
+    last_name = forms.CharField(max_length=11, label='Curso', widget=forms.TextInput(attrs={"placeholder": "curso"}),)
  
     def save(self, request):
 

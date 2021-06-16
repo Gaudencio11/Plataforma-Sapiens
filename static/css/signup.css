@@ -43,6 +43,68 @@ section {
 }
 
 
+/* First section */
+
+.first-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.logo-sapiens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.logo-sapiens img {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    flex: 1;
+}
+
+.white-line {
+    background: white;
+    height: 0.5px;
+    width: 80%;
+    display: flex;
+    margin-top: 50px;
+}
+
+.logos {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logos img {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
+
+.logos img:first-child {
+    max-width: 300px;
+    max-height: 250px;
+    margin-top: 20px;
+    margin-right: 20%;
+}
+
+
 /*  Ajustar imagem */
 
 .logo-container {
@@ -145,7 +207,7 @@ button {
     text-decoration: none;
     color: #07396C;
     font-weight: 600;
-    position: absolute;
+    /* position: absolute; */
     bottom: 20px;
     font-size: clamp(0.8em, 1vw, 1em);
 }
@@ -204,6 +266,6 @@ button {
         font-size: clamp(1em, 2vw, 1em);
     }
     .footer-text {
-        bottom: 5px;
+        bottom: 1px;
     }
 }

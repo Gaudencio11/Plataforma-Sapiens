@@ -12,7 +12,7 @@ urlpatterns = [
 
     #esse serve para abrir a página dizendo que seu email de verificação foi enviado (o mais simples)
     path(
-        "confirm-email/",
+        "email/email-enviado/",
         views.email_verification_sent,
         name="account_email_verification_sent",
     ),
@@ -26,7 +26,7 @@ urlpatterns = [
     path("redefinir-senha/", views.password_reset, name="account_reset_password"
     ),
     path(
-        "password/reset/done/",
+        "senha/email-enviado/",
         views.password_reset_done,
         name="account_reset_password_done",
     ),

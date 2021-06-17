@@ -56,6 +56,7 @@ class Program(models.Model):
     day = models.IntegerField(default=1)
     image = models.ImageField(upload_to='images/', null= True, blank=True )
     date = models.DateField(max_length=50)
+    hour = models.TimeField(blank=True, null=True)
     link = models.CharField(max_length=200)
 
 

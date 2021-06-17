@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-
     
     <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/rooms.css' %}">
@@ -36,7 +35,7 @@
                                     <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover"><a href="#">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
                     <li class="principal"><a href="#">Do Tempo do Ronca</a>
@@ -54,18 +53,16 @@
                             <li class="hover">{{request.user}}</li>
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
-
-                            {% if request.user.is_superuser %}
-                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
-                            {% endif %}
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
                                     <button class="botao" type="submit">Sair</button>
                                 </form>
                             </li>
+                            {% if request.user.is_superuser %}
+                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                            {% endif %}
                             
-
                         </ul>
                     </li>
                 </ul>
@@ -79,59 +76,53 @@
     </header>
 
     
-    <section class="cards">
-        {% for program in programs %}
+    <div class="wrapper-flex">
+    {% for program in programs %}    
         <div class="container">
+
             {% if program.image %}
-            <div class='banner-img' id="responsive-img">
+            <div class='banner-img' class="responsive-img">
                 <img src="{{program.image.url}}" alt="" class="responsive-img">
             </div>
             {%else%}
             <div class='banner-img' class="responsive-img">
                 <img src="{% static 'images/cafe.jpg' %}" alt="" class="responsive-img">
             </div>
-            {% endif %}
+             {% endif %}
+
             <div class="description-container">
                 <p class="name" title="{{program.name}}">{{program.name}}</p>
                 <p class="description">Data:{{program.date}} - Hora: {{program.hour}}</p>
                 <a href="{{program.link}}">Ingressar</a>
             </div>
         </div>
-        {% endfor %}
+    {% endfor %}    
     </div>
-
-
+    
     <footer>
         <div class="footer-container">
-          <!--   <div class="sec aboutus">
+            <div class="sec aboutus">
                 <h2>Sobre Nós</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
                     book. It has survived not only</p>
-              
-            </div> -->
-            <div class="sec quickLinks">
-                <h2>Patrocinadores</h2>
-                <ul class="patrocinador-lista">
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
-                    <li><a href="#"><img class="patrocinador-img" src="{% static 'images/original.png' %}" alt=""></a></li>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                 </ul>
-            </div> 
+            </div>
+            <div class="sec quickLinks">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAC</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
             <div class="sec contact">
                 <h2>Informações para Contato</h2>
                 <ul class="info">
@@ -143,18 +134,10 @@
                         <span><i class="fa fa-phone" aria-hidden="true"></i></span>
                         <p><a href="tel.83999999999">(83) 99999-9999</a></p>
                     </li>
-                    <ul class="contato">
-                        <li><span><i class="fa fa-envelope" aria-hidden="true"></i></span><p><a href="mailto:unipemailunipemail@email.com">sapiens10anos@unipe.edu.br</a></p></li>
-                        
-                        <li><span><i class="fa fa-whatsapp" aria-hidden="true"></i></span><p><a href="https://wa.me/message/44GXA6IAP4MOL1" target="_blank">Whatsapp</a></p></li>
-                        
-                        <ul class="sci">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </ul>
+                    <li>
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <p><a href="mailto:unipemailunipemail@email.com">unipemailunipemail@email.com</a></p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -162,7 +145,6 @@
     <div class="copyrightText">
         <p>© 2021 Todos os direitos reservados.</p>
     </div>
-
 
 
 

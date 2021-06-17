@@ -143,6 +143,21 @@ def programacaoView(request, slug1):
     return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
 
 
+def apoiadoresView(request, slug1):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    event = Event.objects.all()[0]
+    
+    rooms = Room.objects.all() 
+
+
+    return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
+
+
+
+
+
 def get_excell_users(request):
     
     
@@ -161,7 +176,7 @@ def get_excell_users(request):
     worksheet = workbook.active
     worksheet.title = "Usuários"
 
-    columns = ['N°','Nome completo','Cpf']
+    columns = ['Posição','Nome completo','Curso', 'Email']
     row_num = 1
 
     #This atribue value to the columns headers
@@ -177,6 +192,7 @@ def get_excell_users(request):
             row_num-1,
             str(user.username),
             user.last_name,
+            user.email,
         ]
 
         for col_number, cell_value in enumerate(row, 1):
@@ -185,7 +201,7 @@ def get_excell_users(request):
             cell.alignment = Alignment(vertical='top', wrap_text=True, horizontal='left')
 
     #for fix the width of th column
-    dimensions = [7,55, 15,]
+    dimensions = [7,55, 20, 30]
     for col_num, width in enumerate(dimensions, 1):
         column_letter = get_column_letter(col_num)
         column_dimensions = worksheet.column_dimensions[column_letter]

@@ -1,0 +1,358 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palestras</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link rel="stylesheet" href="{% static 'css/apoiadores.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    <a href="{% url 'menu' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
+                    
+                    <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
+                    <li class="principal"><a href="#">Aglomeração de Saberes</a>
+                        <ul>
+                            {% for room in rooms %}
+                                {% if room.slug != 'sapiens-familia' %}
+                                    <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                {%endif%}
+                            {% endfor %}
+                            <li class="hover"><a href="#">Equipe Apoiadora</a></li> 
+                        </ul>
+                    </li>
+                    <li class="principal"><a href="#">Do Tempo do Ronca</a>
+                        <ul>
+                            <li class="hover"><a href="#">História</a></li>
+                            <li class="hover"><a href="#">Edições Sapiens</a></li>
+                            <li class="hover"><a href="#">Edição Atual</a></li>
+                        </ul>
+                    </li>
+                    <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
+                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
+                     
+                    <li class="principal"><a href="#">Usuário</a>
+                        <ul>
+                            <li class="hover">{{request.user}}</li>
+                            
+                            <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
+
+                            {% if request.user.is_superuser %}
+                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                            {% endif %}
+                            <li>
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button class="botao" type="submit">Sair</button>
+                                </form>
+                            </li>
+                            
+
+                        </ul>
+                    </li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="team-container">
+
+        <p class="team">Equipe Apoiadora</p>
+        <div class="line"></div>
+    </div>
+    <div class="wrapper-flex">
+
+
+        <div class="container">
+            <img src="{% static 'images/palestrante.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/palestrante.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+    </div>
+    <div class="team-container">
+
+        <p class="team">Equipe Desenvolvedora</p>
+        <div class="line"></div>
+    </div>
+    <div class="wrapper-flex">
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <div class="description-container ">
+                <p class="name ">Paulo Sousa</p>
+                <p class="description ">Doutor em Física Quantica</p>
+                <p class="palestra">Novas Construções sociais da aprendizagem</p>
+                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
+                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container ">
+            <div class="sec aboutus ">
+                <h2>Sobre Nós</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only</p>
+                <ul class="sci ">
+                    <li><a href="# "><i class="fa fa-facebook " aria-hidden="true "></i></a></li>
+                    <li><a href="# "><i class="fa fa-twitter " aria-hidden="true "></i></a></li>
+                    <li><a href="# "><i class="fa fa-instagram " aria-hidden="true "></i></a></li>
+                    <li><a href="# "><i class="fa fa-youtube-play " aria-hidden="true "></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quickLinks ">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="# ">About</a></li>
+                    <li><a href="# ">FAC</a></li>
+                    <li><a href="# ">Privacy Policy</a></li>
+                    <li><a href="# ">Help</a></li>
+                    <li><a href="# ">Terms & Conditions</a></li>
+                    <li><a href="# ">Contact</a></li>
+                </ul>
+            </div>
+            <div class="sec contact ">
+                <h2>Informações para Contato</h2>
+                <ul class="info ">
+                    <li>
+                        <span><i class="fa fa-map-marker " aria-hidden="true "></i></span>
+                        <span>Rodovia BR-230,KM 22, S/N - Água Fria, João Pessoa</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone " aria-hidden="true "></i></span>
+                        <p><a href="tel.83999999999 ">(83) 99999-9999</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope " aria-hidden="true "></i></span>
+                        <p><a href="mailto:unipemailunipemail@email.com ">unipemailunipemail@email.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyrightText ">
+        <p>© 2021 Todos os direitos reservados.</p>
+    </div>
+</body>
+<script src=".{% static 'js/header.js' %} "></script>
+
+</html>

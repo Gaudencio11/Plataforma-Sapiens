@@ -190,7 +190,7 @@ def get_excell_users(request):
 
         row=[
             row_num-1,
-            str(user.username),
+            str(user.first_name),
             user.last_name,
             user.email,
         ]

@@ -213,23 +213,15 @@ def get_excell_users(request):
 
 
 
+def loginRedirect(request):
 
 
 
+    return render(request, 'v1bem_vindo.html', {})
 
 
 
-
-
-
-
-
-
-"""def testeStatic1(request):
-
-    return render(request, 'teste1.html', {})
-
-def testeStatic2(request):
+"""def testeStatic2(request):
 
     return render(request, 'teste2.html', {})"""
 

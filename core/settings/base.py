@@ -156,7 +156,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-LOGIN_REDIRECT_URL = "/hall/" #Nome da view designada em uls.py
+LOGIN_REDIRECT_URL = "/bem-vindo/" #Nome da view designada em uls.py
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_REDIRECT_URL = "/hall/" #testar depois
 
@@ -180,7 +180,7 @@ AUTH_USER_MODEL = 'pagina_pricipal.User'
 
 #Email Configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'marcos.teste083@gmail.com'

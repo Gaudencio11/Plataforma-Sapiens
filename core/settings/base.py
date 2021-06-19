@@ -156,14 +156,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-LOGIN_REDIRECT_URL = "/bem-vindo/" #Nome da view designada em uls.py
+LOGIN_REDIRECT_URL = "/bem-vindo/" #No momento de liberação do site mudar para /hall/
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_REDIRECT_URL = "/hall/" #testar depois
 
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 
-ACCOUNT_USERNAME_REQUIRED = True #Depois mudar pra false
+ACCOUNT_USERNAME_REQUIRED = False 
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"

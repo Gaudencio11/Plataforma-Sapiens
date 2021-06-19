@@ -47,11 +47,11 @@
                         </ul>
                     </li>
                     <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
-                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
+                    <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
                     <li class="principal"><a href="#">Usuário</a>
                         <ul>
-                            <li class="hover">{{request.user}}</li>
+                            <li class="hover">{{request.user.first_name}}</li>
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
                             <li>
@@ -61,7 +61,7 @@
                                 </form>
                             </li>
                             {% if request.user.is_superuser %}
-                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                                <li> <a href="https://sapiens-10-anos.herokuapp.com/admin/">Sala do Administrador</a></li>
                             {% endif %}
                             
                         </ul>

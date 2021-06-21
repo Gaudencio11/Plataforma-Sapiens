@@ -1,3 +1,12 @@
-A SAPIENS DÁ AS BOAS VINDAS!
+Olá, {{user.first_name}},
 
-POR FAVOR, PARA COMPLETAR CADASTRO CONFIRM SEU EMAIL ATRAVÉS DO LINK {{ activate_url }}
+Falta pouco.
+
+Precisamos verificar seu endereço de e-mail para que sua conta esteja funcionando, além disso, será possível recuperar a sua conta de forma fácil e segura no futuro.
+
+Para concluir a verificação, clique no link abaixo:
+
+{{ activate_url }}
+
+Se você não tentou realizar o login mas recebeu este e-mail, por favor ignore este e-mail.
+ 

@@ -7,18 +7,18 @@ from allauth.account  import views
 urlpatterns = [
     # Accounts Urls
     path('', views.login, name='account_login'),
-    path('logout/', views.logout, name='logout'),
-    path('signup/', views.signup, name='account_signup'),
+    path('sair/', views.logout, name='logout'),
+    path('cadastro/', views.signup, name='account_signup'),
 
     #esse serve para abrir a página dizendo que seu email de verificação foi enviado (o mais simples)
     path(
-        "email/email-enviado/",
+        "confirmar-email/enviado/",
         views.email_verification_sent,
         name="account_email_verification_sent",
     ),
     #esse serve para realizar o envio do email de confirmação para o usuário
     re_path(
-        r"^confirm-email/(?P<key>[-:\w]+)/$",
+        r"^confirmar-email/(?P<key>[-:\w]+)/$",
         views.confirm_email,
         name="account_confirm_email",
     ),
@@ -26,16 +26,16 @@ urlpatterns = [
     path("redefinir-senha/", views.password_reset, name="account_reset_password"
     ),
     path(
-        "senha/email-enviado/",
+        "redefinir-senha/email-enviado/",
         views.password_reset_done,
         name="account_reset_password_done",
     ),
     re_path(
-        r"^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$",
+        r"^redefinir-senha/nova-senha(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$",
         views.password_reset_from_key,
         name="account_reset_password_from_key",),
     path(
-        "password/reset/key/done/",
+        "redefinir-senha/finalizado/",
         views.password_reset_from_key_done,
         name="account_reset_password_from_key_done",
     ),
@@ -56,24 +56,3 @@ urlpatterns = [
 ]
 
 
-"""   
-    
-    
-    #Reset password
-    path("redefinir-senha/", views.password_reset, name="account_reset_password"
-    ),
-    path(
-        "password/reset/done/",
-        views.password_reset_done,
-        name="account_reset_password_done",
-    ),
-    re_path(
-        r"^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$",
-        views.password_reset_from_key,
-        name="account_reset_password_from_key",),
-    path(
-        "password/reset/key/done/",
-        views.password_reset_from_key_done,
-        name="account_reset_password_from_key_done",
-    ),
-    """

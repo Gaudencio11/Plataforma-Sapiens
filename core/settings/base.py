@@ -132,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = 'https://sapiens-10-anos.herokuapp.com/sapiens_teste-deploy_heroku/media/'
+MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
@@ -165,7 +165,8 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 
 ACCOUNT_USERNAME_REQUIRED = False 
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True #mudar depois para true
+ACCOUNT_SESSION_REMEMBER =True
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'

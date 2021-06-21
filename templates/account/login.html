@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Entrar</title>
@@ -43,9 +44,8 @@
                 <h3>SAPIENS</h3>
                 <div class="input-container">
                    
-                    {{ form.login }}
-                    {{ form.password}}
-                    <p >{{form.remember }}  <span > Me mantenha conectado</span></p> 
+                    {{ form}}
+                    <!--<p>{{form.remember }}  <span> Me mantenha conectado</span></p>--> 
                     
                     <p>
                         <a href=" {% url 'account_reset_password' %}" class="forgot-password">Esqueceu a senha?</a>

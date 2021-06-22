@@ -5,10 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar senha</title>
+    <title>Inscrição Confirmada</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/changepassword1.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/v1bem_vindo.css' %}">
 </head>
 
 <body>
@@ -36,15 +38,16 @@
             </div>
                 <h3>Inscrição realizada com sucesso!</h3>
                 <div class="input-container">
-                    <p> Seja bem-vindo (a) à plataforma da X edição da Semana de Atualização Pedagógica. A SAPIENS está completando dez anos, e é fruto da colaboração de todos! Sendo assim, a Pró-Reitoria Acadêmica – PROAC, do Centro Universitário de João Pessoa – UNIPÊ, agradece a todos que contribuíram e participaram para que a nossa formação, a cada edição, alcançasse o objetivo de despertar para novas práticas, métodos e ferramentas que perpassam o universo do ser e fazer docente.
-                    As boas práticas, ao longo da trajetória da SAPIENS, mostraram-se como um momento rico de trocas, compartilhamentos e fortalecimento das ações que são desenvolvidas em sala de aula e que obtiveram resultados positivos. Assim, este ano não seria diferente. 
-                    Queremos muito saber que boas práticas você desenvolveu para que possamos compartilhar com todos os professores, e então, fortalecer a nossa comunidade docente. Bora compartilhar? Então, clica no link e conta para nós a <a href="https://wa.me/message/44GXA6IAP4MOL1" class="yellow-color"> sua boa prática</a>.</p>
+                    <p> Seja bem-vindo (a) à plataforma da X edição da Semana de Atualização Pedagógica. A SAPIENS está completando dez anos, e é fruto da colaboração de todos! Sendo assim, a Pró-Reitoria Acadêmica – PROAC, do Centro Universitário de João Pessoa – UNIPÊ, agradece a todos que contribuíram e participaram para que a nossa formação, a cada edição, alcançasse o objetivo de despertar para novas práticas, métodos e ferramentas que perpassam o universo do ser e fazer docente.</p> 
+                    <p>As boas práticas, ao longo da trajetória da SAPIENS, mostraram-se como um momento rico de trocas, compartilhamentos e fortalecimento das ações que são desenvolvidas em sala de aula e que obtiveram resultados positivos. Assim, este ano não seria diferente.</p>    
+                    <p>Queremos muito saber que boas práticas você desenvolveu para que possamos compartilhar com todos os professores, e então, fortalecer a nossa comunidade docente. Bora compartilhar? Então, clica no link e conta para nós a <a href="https://wa.me/message/44GXA6IAP4MOL1" class="yellow-color"> sua boa prática</a>.</p>
+                    
                     
                 </div>
             <p class="footer">
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button type="submit">Tela de Login</button>
+                    <button type="submit">SAIR</button>
                 </form>
                 
                 </a>

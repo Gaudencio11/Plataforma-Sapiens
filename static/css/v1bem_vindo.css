@@ -277,7 +277,7 @@ button {
   }
 }
 
-@media (min-height: 900px) {
+@media (min-height: 768px) {
   .logo-container {
       
       display: none;

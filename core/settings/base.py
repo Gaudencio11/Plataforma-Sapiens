@@ -167,7 +167,7 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 
 ACCOUNT_USERNAME_REQUIRED = False 
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True #mudar depois para true
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true
 ACCOUNT_SESSION_REMEMBER =True
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
@@ -187,6 +187,6 @@ AUTH_USER_MODEL = 'pagina_pricipal.User'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'marcos.teste083@gmail.com'
-EMAIL_HOST_PASSWORD = '@!es!@nd0'
+EMAIL_HOST_USER = 'sapiensdonotreplay@fabrica.unipe.br'
+EMAIL_HOST_PASSWORD = 's@p!3nsdonotreplay'
 EMAIL_USE_TLS = True

@@ -17,7 +17,7 @@ class CustomSignupForm(SignupForm):
 
     last_name = forms.CharField(max_length=200, label='Curso', widget=forms.TextInput(attrs={"placeholder": "Curso"}),)
     first_name = forms.CharField(max_length=200, label='Nome', widget=forms.TextInput(attrs={"placeholder": "Nome"}),)
-    email = forms.CharField(max_length=200, label='E-mail DASDASDASDA: ', widget=forms.TextInput(attrs={"placeholder": "Email INSTITUCIONAL"}),)
+    email = forms.CharField(max_length=200, label='E-mail: ', widget=forms.TextInput(attrs={"placeholder": "Email INSTITUCIONAL"}),)
     
     
 

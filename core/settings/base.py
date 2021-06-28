@@ -132,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/mediafiles/'
+MEDIA_URL = '/media/'
 
 #Cria a pasta que serve como repositório 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -159,7 +159,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-LOGIN_REDIRECT_URL = "/bem-vindo/" #No momento de liberação do site mudar para /hall/
+LOGIN_REDIRECT_URL = "/hall/" #No momento de liberação do site mudar para /hall/
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_SIGNUP_REDIRECT_URL = "/hall/" #testar depois
 
@@ -167,7 +167,7 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/"
 
 ACCOUNT_USERNAME_REQUIRED = False 
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #mudar depois para true
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #
 ACCOUNT_SESSION_REMEMBER =True
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
@@ -190,3 +190,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'marcos.teste083@gmail.com'
 EMAIL_HOST_PASSWORD = '@!es!@nd0'
 EMAIL_USE_TLS = True
+

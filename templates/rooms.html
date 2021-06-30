@@ -84,7 +84,7 @@
         <div class="container">
             {% if program.image %}
             <div class='banner-img' id="responsive-img">
-                <img src="{{program.image.url}}" alt="" class="responsive-img">
+                <img src="{{program.link}}" alt="" class="responsive-img">
             </div>
             {%else%}
             <div class='banner-img' class="responsive-img">
@@ -94,7 +94,7 @@
             <div class="description-container">
                 <p class="name" title="{{program.name}}">{{program.name}}</p>
                 <p class="description">Data:{{program.date}} - Hora: {{program.hour}}</p>
-                <a href="{{program.link}}">Ingressar</a>
+                <a href="#">Ingressar</a>
             </div>
         </div>
         {% endfor %}

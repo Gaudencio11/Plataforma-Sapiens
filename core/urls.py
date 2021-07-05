@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include("pagina_pricipal.urls")),
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #allow us to handle with images
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
 

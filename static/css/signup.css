@@ -66,9 +66,6 @@ section {
     flex-direction: column;
     max-width: 600px;
     max-height: 500px;
-    width: auto;
-    height: auto;
-    flex: 1;
 }
 
 .white-line {
@@ -110,17 +107,20 @@ section {
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 
-img {
+.logo-container img {
     display: flex;
     flex-direction: column;
     max-width: 200px;
     max-height: 150px;
     width: auto;
     height: auto;
+    
+    
 }
+
 
 
 /* Cadastro */
@@ -147,6 +147,12 @@ h3 {
     flex-direction: column;
 }
 
+/* label */
+
+label {
+    display: none !important;
+}
+
 input {
     background: #EFF0F6;
     border: none;
@@ -158,6 +164,11 @@ input {
     font-weight: 600;
     font-size: 16px
 }
+
+#id_password1 {
+    margin-bottom: 5px !important;
+}
+
 
  ::-webkit-input-placeholder {
     color: #A8A8AB;
@@ -224,6 +235,20 @@ button {
         display: none;
     }
 }
+
+@media (max-height: 768px) {
+    .logo-sapiens img {
+        max-width: 500px;
+        max-height: 400px;
+    }
+    .logos img {
+        max-width: 200px;
+        max-height: 150px;
+    }
+    .white-line {        
+        margin-top: 20px;
+    }
+} 
 
 @media (max-width: 320px) {
     input,

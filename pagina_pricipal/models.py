@@ -19,7 +19,7 @@ class User(AbstractUser):
 class Event(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField( null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     days = models.IntegerField(default=1)
                             

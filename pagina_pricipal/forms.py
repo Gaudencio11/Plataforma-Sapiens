@@ -15,9 +15,9 @@ class CustomSignupForm(SignupForm):
     #Usamos aqui a coluna 'lastname' do allauth para introduzirmos o CURSO do usuário
 
 
-    last_name = forms.CharField(max_length=200, label='Curso', widget=forms.TextInput(attrs={"placeholder": "Curso"}),)
-    first_name = forms.CharField(max_length=200, label='Nome', widget=forms.TextInput(attrs={"placeholder": "Nome"}),)
-    email = forms.CharField(max_length=200, label='E-mail: ', widget=forms.TextInput(attrs={"placeholder": "Email INSTITUCIONAL"}),)
+    first_name = forms.CharField(max_length=200, label='', widget=forms.TextInput(attrs={"placeholder": "Nome"}),)
+    last_name = forms.CharField(max_length=200, label='', widget=forms.TextInput(attrs={"placeholder": "Curso"}),)
+    email = forms.CharField(max_length=200, label='', widget=forms.TextInput(attrs={"placeholder": "Email INSTITUCIONAL", "type": "se deu certo tshow"}),)
     
     
 

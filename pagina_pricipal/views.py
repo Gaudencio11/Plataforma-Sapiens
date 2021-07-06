@@ -47,8 +47,11 @@ def menuView(request):
                 request.user.delete()
                 return redirect('/cpf-invalido/')"""
         
-
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
 
     event = Event.objects.all()[0]
     event_name = event.slug
@@ -57,7 +60,7 @@ def menuView(request):
     rooms = Room.objects.all()
     
     
-    return render(request, 'hall.html', {'event':event, 'rooms':rooms, 'slug':event_name, "user_name":user_name[0]})
+    return render(request, 'hall.html', {'event':event, 'rooms':rooms, 'slug':event_name, "user_name":user_name})
 
 
     #slug2 é o slug da sala
@@ -66,7 +69,12 @@ def daysView(request, slug1, slug2):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+    
     event = Event.objects.all()[0]
     
 
@@ -82,7 +90,7 @@ def daysView(request, slug1, slug2):
 
     sala_days = {1:'19/07/2021',2:'20/07/2021',3:'21/07/2021'}#Para a sapiens
 
-    return render(request, 'days.html', { "sala_days":sala_days, "room":sala, 'event':event, 'rooms':rooms, "user_name":user_name[0]})
+    return render(request, 'days.html', { "sala_days":sala_days, "room":sala, 'event':event, 'rooms':rooms, "user_name":user_name})
 
 #slug3 é o dia
 def roomsGenericView(request, slug1, slug2, slug3):
@@ -90,7 +98,12 @@ def roomsGenericView(request, slug1, slug2, slug3):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
     event = Event.objects.all()[0]
     
 
@@ -110,13 +123,20 @@ def roomsGenericView(request, slug1, slug2, slug3):
     #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
     rooms = Room.objects.all()
 
-    return render(request, 'rooms.html', { 'event':event, 'programs': room_programs, 'room':sala, 'rooms':rooms, "user_name":user_name[0]})
+    return render(request, 'rooms.html', { 'event':event, 'programs': room_programs, 'room':sala, 'rooms':rooms, "user_name":user_name})
 
 #slug1 is the event
 def padletView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
+
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+        
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
     
@@ -129,33 +149,48 @@ def desopilarView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
     event = Event.objects.all()[0]
     rooms = Room.objects.all()  
 
-    return render(request, 'desopilar.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
+    return render(request, 'desopilar.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
 
 def programacaoView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
     event = Event.objects.all()[0]
     rooms = Room.objects.all()  
 
-    return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
+    return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
 
 
 def apoiadoresView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    user_name = request.user.first_name.split()
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
     event = Event.objects.all()[0]
     rooms = Room.objects.all() 
 
 
-    return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
+    return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
 
 
 

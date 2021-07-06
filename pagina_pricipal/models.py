@@ -54,17 +54,17 @@ class Program(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE, null= True, blank=True) #many to one relationship
     name = models.CharField(max_length=50) 
     day = models.IntegerField(default=1)
-    image = models.ImageField(upload_to='images/', null= True, blank=True )
-    date = models.DateField(max_length=50)
-    hour = models.TimeField(blank=True, null=True)
-    link = models.CharField(max_length=200)
+    image = models.CharField(max_length=250, null= True, blank=True)
+    date = models.DateField(max_length=50, )
+    hour = models.CharField(max_length=250, null=True ,blank=True)
+    link = models.CharField(max_length=250, null= True, blank=True)
 
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = 'Programa'
+        verbose_name = 'Atividade'
 
 #Esse models foi criando no processo de desnvolvimento para servir de BD dos cpfs autorizados a acessar o site
 class AutorizedCpfs(models.Model):

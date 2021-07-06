@@ -16,9 +16,10 @@ class RoomAdmin(admin.ModelAdmin):
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     #Quais são os atributos da postagem que irá aparecer
-    fields = ("first_name","last_name","email")
+    fields = ("first_name","last_name","email", "is_superuser")
+
+    list_display = ["first_name","last_name","email", "is_superuser"]
     
-    list_display = ["first_name","last_name","email"]
     
 
 

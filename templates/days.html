@@ -51,9 +51,9 @@
                     <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
                      <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                    <li class="principal"><a href="#">Usuário</a>
+                     <li class="principal"><a href="">{{user_name}}</a>
                         <ul>
-                            <li class="hover">{{request.user}}</li>
+                            
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
                             <li>
@@ -79,12 +79,13 @@
     </header>
     
     <main class="container">
-        {% for day in sala_days %}
-        <div class="card">
-            <p class="title">Programação {{room.name}}</p>
-            <p class="schedule">Dia {{day}} - 11/07 - 13h30 ás 14:00</p>
-            <a href="{% url 'rooms' event.slug room.slug day %}">Saiba mais</a>
-        </div>
+        {% for day, date in sala_days.items %}
+            <div class="card">
+                <p class="title">Programação {{room.name}}</p>
+                
+                <p class="schedule">Data:  {{date}}</p>
+                <a href="{% url 'rooms' event.slug room.slug day %}">Saiba mais</a>
+            </div>
         {% endfor %}
     </main>
 

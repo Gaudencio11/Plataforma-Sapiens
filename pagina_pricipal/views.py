@@ -48,16 +48,16 @@ def menuView(request):
                 return redirect('/cpf-invalido/')"""
         
 
+    user_name = request.user.first_name.split()
+
     event = Event.objects.all()[0]
-
-    
-
     event_name = event.slug
     
     #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
     rooms = Room.objects.all()
     
-    return render(request, 'hall.html', {'event':event, 'rooms':rooms, 'slug':event_name})
+    
+    return render(request, 'hall.html', {'event':event, 'rooms':rooms, 'slug':event_name, "user_name":user_name[0]})
 
 
     #slug2 é o slug da sala
@@ -66,21 +66,23 @@ def daysView(request, slug1, slug2):
     if not request.user.is_authenticated:
         return redirect('/')
 
+    user_name = request.user.first_name.split()
     event = Event.objects.all()[0]
     
 
     #sala específica que a pessoa entrou
     sala = get_object_or_404(Room, slug=slug2) 
 
-    
     rooms = Room.objects.all()
     
-    sala_days= [x for x in range(1, event.days+1)]
-
+    sala_days= [x for x in range(1, event.days+1)] #Para eventos genericos
+    
     if sala.days == 1:
         return redirect(roomsGenericView, slug1, slug2, 'unico')
 
-    return render(request, 'days.html', { "sala_days":sala_days, "room":sala, 'event':event, 'rooms':rooms})
+    sala_days = {1:'19/07/2021',2:'20/07/2021',3:'21/07/2021'}#Para a sapiens
+
+    return render(request, 'days.html', { "sala_days":sala_days, "room":sala, 'event':event, 'rooms':rooms, "user_name":user_name[0]})
 
 #slug3 é o dia
 def roomsGenericView(request, slug1, slug2, slug3):
@@ -88,7 +90,7 @@ def roomsGenericView(request, slug1, slug2, slug3):
     if not request.user.is_authenticated:
         return redirect('/')
 
-
+    user_name = request.user.first_name.split()
     event = Event.objects.all()[0]
     
 
@@ -100,6 +102,7 @@ def roomsGenericView(request, slug1, slug2, slug3):
     if slug3 == 'unico':
         room_programs = Program.objects.filter(room=sala.id)
     else:
+
         room_programs = Program.objects.filter(room=sala.id, day =slug3)
     
 
@@ -107,7 +110,7 @@ def roomsGenericView(request, slug1, slug2, slug3):
     #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
     rooms = Room.objects.all()
 
-    return render(request, 'rooms.html', { 'event':event, 'programs': room_programs, 'room':sala, 'rooms':rooms})
+    return render(request, 'rooms.html', { 'event':event, 'programs': room_programs, 'room':sala, 'rooms':rooms, "user_name":user_name[0]})
 
 #slug1 is the event
 def padletView(request, slug1):
@@ -126,35 +129,33 @@ def desopilarView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
+    user_name = request.user.first_name.split()
     event = Event.objects.all()[0]
-    
     rooms = Room.objects.all()  
 
-    return render(request, 'desopilar.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
+    return render(request, 'desopilar.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
 
 def programacaoView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
+    user_name = request.user.first_name.split()
     event = Event.objects.all()[0]
-    
     rooms = Room.objects.all()  
 
-    return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
+    return render(request, 'programacao.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
 
 
 def apoiadoresView(request, slug1):
     if not request.user.is_authenticated:
         return redirect('/')
 
+    user_name = request.user.first_name.split()
     event = Event.objects.all()[0]
-    
     rooms = Room.objects.all() 
 
 
-    return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1})
-
-
+    return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name[0]})
 
 
 
@@ -212,10 +213,7 @@ def get_excell_users(request):
     return response
 
 
-
 def loginRedirect(request):
-
-
 
     return render(request, 'v1bem_vindo.html', {})
 

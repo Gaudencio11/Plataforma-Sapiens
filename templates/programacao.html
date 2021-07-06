@@ -10,49 +10,70 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/programacao.css' %}">
     <title>Programação</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <nav>
-            <div class="logo">
-                <img src="{% static 'images/original.png' %}" alt="logo">
-            </div>
-            <ul class="nav-links">
+    <header class="header">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    <a href="{% url 'menu' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
+                    
+                    <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
+                    <li class="principal"><a href="#">Aglomeração de Saberes</a>
+                        <ul>
+                            {% for room in rooms %}
+                                {% if room.slug != 'sapiens-familia' %}
+                                    <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                {%endif%}
+                            {% endfor %}
+                            <li class="hover"><a href="#">Equipe Apoiadora</a></li> 
+                        </ul>
+                    </li>
+                    <li class="principal"><a href="#">Do Tempo do Ronca</a>
+                        <ul>
+                            <li class="hover"><a href="#">História</a></li>
+                            <li class="hover"><a href="#">Edições Sapiens</a></li>
+                            <li class="hover"><a href="#">Edição Atual</a></li>
+                        </ul>
+                    </li>
+                    <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
+                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
+                     
+                     <li class="principal"><a href="">{{user_name}}</a>
+                        <ul>
+                            
+                            
+                            <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
+                            <li>
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button class="botao" type="submit">Sair</button>
+                                </form>
+                            </li>
+                            {% if request.user.is_superuser %}
+                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
+                            {% endif %}
+                            
+                        </ul>
+                    </li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-                <li><a href="{% url 'menu' %}">HALL</a></li>
-
-                <li><a href="{% url 'programacao' event.slug %}">PROGRAMAÇÃO</a></li>
-
-                <li> <a href="{% url 'desopilar' event.slug %}">BORA DESOPILAR</a></li>
-
-                {% for room in rooms %}
-                <li> <a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a> </li>
-                {% endfor %}
-                
-                {% if request.user.is_superuser %}
-                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
-                {% endif %}
-
-                <li><form method="post" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <button  type="submit">Sair</button>
-                </form></li>
-
-                <li style="color: white;">{{request.user}}</li>
-
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </div>
     <div class="wrapper1">
 
         <div class="container">

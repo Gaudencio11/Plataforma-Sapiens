@@ -49,9 +49,8 @@
                     <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
                      <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                    <li class="principal"><a href="#">Usuário</a>
+                     <li class="principal"><a href="">{{user_name}}</a>
                         <ul>
-                            <li class="hover">{{request.user}}</li>
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
 

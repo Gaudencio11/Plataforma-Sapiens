@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect
+from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect, padletCardView
 from allauth.account  import views
 
 #Have to configure to all paths use the slug
@@ -43,7 +43,8 @@ urlpatterns = [
 
     #site urls
     path('hall/', menuView, name = 'menu'),
-    path('<slug:slug1>/padlet', padletView, name='padlet'),
+    path('<slug:slug1>/historia-sapiens', padletCardView, name='historia-sapiens'),
+    path('<slug:slug1>/<slug:slug2>-edicao/', padletView, name='padlet'),
     path('<slug:slug1>/desopilar', desopilarView, name='desopilar'),
     path('<slug:slug1>/programacao', programacaoView, name = 'programacao'),
     path('<slug:slug1>/apoiadores', apoiadoresView, name = 'apoiadores'),

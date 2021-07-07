@@ -26,12 +26,8 @@ def menuView(request):
     if not request.user.is_authenticated:
         return redirect('/') 
 
-
-    """send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com',])"""
-
-
-
-    """if AutorizedCpfs.objects.all() == True:
+    """send_mail('Primeiro django test mail', 'Se você está recebendo esse email é porquê você conseguiu', 'marcos.teste083@gmail.com', ['marcos.otavio10@gmail.com',])
+    if AutorizedCpfs.objects.all() == True:
         lista_bd = AutorizedCpfs.objects.all()
         lista_cpf = []
         for item in lista_bd:
@@ -46,7 +42,10 @@ def menuView(request):
                 user_data = [request.user.username, request.user.last_name] 
                 request.user.delete()
                 return redirect('/cpf-invalido/')"""
-        
+
+    #Serve para exibir apenas o primeiro nome do usuário no header
+    #Se for super user exibe o username
+    # Repete Para a maioria das views   
     if not request.user.is_superuser: 
         user_name = request.user.first_name.split()
         user_name = user_name[0]
@@ -56,19 +55,20 @@ def menuView(request):
     event = Event.objects.all()[0]
     event_name = event.slug
     
-    #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
+    #Quando estiver hosteando mais de um evento alterar linha abaixo
+    #Provavelmente adicionar um filtro para o evento específico
     rooms = Room.objects.all()
-    
     
     return render(request, 'hall.html', {'event':event, 'rooms':rooms, 'slug':event_name, "user_name":user_name})
 
 
-    #slug2 é o slug da sala
+#slug1 é o slug do evento, slug2 é o slug da sala selecionada
 def daysView(request, slug1, slug2):
 
     if not request.user.is_authenticated:
         return redirect('/')
 
+    
     if not request.user.is_superuser: 
         user_name = request.user.first_name.split()
         user_name = user_name[0]
@@ -85,14 +85,17 @@ def daysView(request, slug1, slug2):
     
     sala_days= [x for x in range(1, event.days+1)] #Para eventos genericos
     
+    #Caso não haja necessidade de uma tela de dias (A sala possui apenas 1 dia)
     if sala.days == 1:
         return redirect(roomsGenericView, slug1, slug2, 'unico')
 
-    sala_days = {1:'19/07/2021',2:'20/07/2021',3:'21/07/2021'}#Para a sapiens
+    #Para a sapiens. Posteriormente tornar automarizado. Serve para o loop do html
+    sala_days = {1:'19/07/2021',2:'20/07/2021',3:'21/07/2021'}
 
     return render(request, 'days.html', { "sala_days":sala_days, "room":sala, 'event':event, 'rooms':rooms, "user_name":user_name})
 
-#slug3 é o dia
+
+#slug1 é o slug do evento, slug2 é o slug da sala selecionada, slug3 é o dia
 def roomsGenericView(request, slug1, slug2, slug3):
 
     if not request.user.is_authenticated:
@@ -104,29 +107,49 @@ def roomsGenericView(request, slug1, slug2, slug3):
     else:
         user_name = request.user.username
 
+
     event = Event.objects.all()[0]
     
-
     sala = get_object_or_404(Room, slug=slug2)
 
-    #Apenas programas da sala específica
-    #Se não for dia único ele pega os programas específicos por dia
-    #Se for dia único, ele pega apenas o programa daquela sala
+    #Apenas atividades da sala específica
+    #Se não for dia único ele pega as atividades específicas por dia
+    #Se for dia único, ele pega apenas a atividade daquela sala
     if slug3 == 'unico':
-        room_programs = Program.objects.filter(room=sala.id)
+        room_activities = Program.objects.filter(room=sala.id)
     else:
 
-        room_programs = Program.objects.filter(room=sala.id, day =slug3)
+        room_activities = Program.objects.filter(room=sala.id, day =slug3)
     
 
 
     #dar uma olhada na linha abaixo depois (apenas rooms da sapiens)
     rooms = Room.objects.all()
 
-    return render(request, 'rooms.html', { 'event':event, 'programs': room_programs, 'room':sala, 'rooms':rooms, "user_name":user_name})
+    return render(request, 'rooms.html', { 'event':event, 'activities': room_activities, 'room':sala, 'rooms':rooms, "user_name":user_name})
 
-#slug1 is the event
-def padletView(request, slug1):
+def padletCardView(request, slug1):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
+    rooms = Room.objects.all()
+    event = Event.objects.all()[0]
+
+
+
+    return render(request, "padlet_cards.html", {'event':event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
+
+
+
+#slug1 is the event, slug2 é a edição da sapiens. 
+def padletView(request, slug1, slug2):
     if not request.user.is_authenticated:
         return redirect('/')
 
@@ -140,9 +163,7 @@ def padletView(request, slug1):
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
     
-
-
-    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1})
+    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'edicao':slug2,})
 
 
 def desopilarView(request, slug1):
@@ -197,7 +218,6 @@ def apoiadoresView(request, slug1):
 def get_excell_users(request):
     
     
-
     users_list =  User.objects.all()
 
     response = HttpResponse(

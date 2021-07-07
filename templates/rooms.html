@@ -79,11 +79,11 @@
 
     
     <section class="cards">
-        {% for program in programs %}
+        {% for activity in activities %}
         <div class="container">
-            {% if program.image %}
+            {% if activity.image %}
             <div class='banner-img' id="responsive-img">
-                <img src="{{program.image}}" alt="" class="responsive-img">
+                <img src="{{activity.image}}" alt="" class="responsive-img">
             </div>
             {%else%}
             <div class='banner-img' class="responsive-img">
@@ -91,9 +91,9 @@
             </div>
             {% endif %}
             <div class="description-container">
-                <p class="name" title="{{program.name}}">{{program.name}}</p>
-                <p class="description">Data:{{program.date}} - Hora: {{program.hour}}</p>
-                <a href="{{program.link}}">Ingressar</a>
+                <p class="name" title="{{activity.name}}">{{activity.name}}</p>
+                <p class="description">Data:{{activity.date}} - Hora: {{activity.hour}}</p>
+                <a href="{{activity.link}}">Ingressar</a>
             </div>
         </div>
         {% endfor %}

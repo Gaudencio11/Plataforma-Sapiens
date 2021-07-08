@@ -149,7 +149,7 @@ def padletCardView(request, slug1):
 
 
 #slug1 is the event, slug2 é a edição da sapiens. 
-def padletView(request, slug1, slug2):
+def padletView(request, slug1, slug2, conta):
     if not request.user.is_authenticated:
         return redirect('/')
 
@@ -163,7 +163,7 @@ def padletView(request, slug1, slug2):
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
     
-    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'edicao':slug2,})
+    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'edicao':slug2, "conta":conta})
 
 
 def desopilarView(request, slug1):

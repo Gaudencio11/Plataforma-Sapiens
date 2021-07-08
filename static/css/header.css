@@ -1,7 +1,7 @@
 /* ------ MENU ------ */
 
 nav {
-  position: fixed; /* precisa para que o hotspot não seja afetado pelo header */
+  position: relative; /* precisa para que o hotspot não seja afetado pelo header */
   display: flex;
   width: 100%;
   height: 100px;

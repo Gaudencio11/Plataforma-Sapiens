@@ -137,7 +137,7 @@ addHotspot(new THREE.Vector3(75, -20, -150), rooms_names[1]['name'], rooms_names
 addHotspot(new THREE.Vector3(120, -20, 120), rooms_names[2]['name'], rooms_names[2]['url'])
 addHotspot(new THREE.Vector3(-30, -5, 60), rooms_names[3]['name'], rooms_names[3]['url'])
 addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[4]['name'], rooms_names[4]['url'])
-addHotspot(new THREE.Vector3(-110, 0, 20), rooms_names[5]['name'], rooms_names[5]['url'])
+
 
 //Linkando sites nos hotspots
 function abreLink(link) {

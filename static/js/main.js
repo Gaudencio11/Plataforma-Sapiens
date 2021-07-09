@@ -21,7 +21,7 @@ controls.autoRotateSpeed = 0.2
 controls.enableDamping = true
 
 //Posicionando a câmera (nossa visão)
-camera.position.set(-1, 0, 0.2)
+camera.position.set(-1, 0, 0.25)
 controls.update()
 
 //Criando a esfera (objeto)

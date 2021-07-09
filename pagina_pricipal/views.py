@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Event, Room, Program,  AddIcon, SelectIcon, User
-
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
 
@@ -21,7 +21,7 @@ from openpyxl.styles import Alignment
     for item in lista_bd:
         lista_cpf.append(item.cpf)"""
 
-
+#@login_required(login_url='/')
 def menuView(request): 
     if not request.user.is_authenticated:
         return redirect('/') 
@@ -148,8 +148,8 @@ def padletCardView(request, slug1):
 
 
 
-#slug1 is the event, slug2 é a edição da sapiens. 
-def padletView(request, slug1, slug2, conta):
+#slug1 is the event, slug2 é a conta da padlet, slug3 é a edição da sapiens 
+def padletView(request, slug1, slug2, slug3):
     if not request.user.is_authenticated:
         return redirect('/')
 
@@ -163,7 +163,7 @@ def padletView(request, slug1, slug2, conta):
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
     
-    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'edicao':slug2, "conta":conta})
+    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'conta':slug2, "edicao":slug3})
 
 
 def desopilarView(request, slug1):

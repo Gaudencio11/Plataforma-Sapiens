@@ -1,5 +1,3 @@
-/* footer */
-
 footer {
     position: relative;
     width: 100%;
@@ -15,7 +13,7 @@ footer {
 footer .footer-container {
     display: flex;
     justify-content: space-between;
-   
+    width: 100%;
     flex-direction: row;
 }
 
@@ -31,7 +29,8 @@ footer .footer-container h2 {
     position: relative;
     color: #fff;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 3rem;
+    margin-right: 5rem;
 }
 
 footer .footer-container h2:before {
@@ -52,8 +51,8 @@ footer p {
 /* seção patrocinadores */
 .quickLinks {
     position: relative;
-    width: 50%;
-    margin-left: 50px;
+    width: 40%;
+    /* margin-left: 50px; */
 }
 
 .quickLinks ul li {
@@ -71,27 +70,61 @@ footer p {
     color: #999;
 }
 
-.patrocinador-lista {
+.patrocinador-lista { 
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
+    
     /* margin: 0 auto; */
 }
 
 .patrocinador-img {
-    margin:10px 10px;
-    width: 60px;
-    height: 60px;
+    margin: 15px 15px;                  /* antes era 10px 10px */
+    width: 90px;                       /* antes era 60px, heigth tb */
+    height: 90px;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    border: 10px solid transparent;
 }
 
 .patrocinador-img:hover {
-    transform: scale(2);
+    transform: scale(1.5);
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    border: 5px solid #136497;
+    border-radius: 50%;
+}
+
+#hemocentro-div {
+    display: flex;
+    flex-direction: column ;
+    margin-right: 1rem;
+}
+
+#hemocentro {
+    width: 150px;
+    height: 150px;
+    
+    border-radius: 120px;
+    transition: all .7s ease-in-out;
+}
+
+
+#hemocentro:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    border: 5px solid #136497;
 }
 
 /* seção informações para contato */
 .contact {
-    width: 40%;
+    width: 30%;
     margin-right: 0 !important;
+}
+
+.info {
+    margin-top: 35px;
 }
 
 .contact .info {
@@ -178,9 +211,24 @@ footer p {
     padding: 5px 100px;
     text-align: center;
     color: #fff;
+    font-size: small;
 }
 
 /* responsividade */
+
+@media screen and (min-width: 280px) and (max-width:319px) {
+
+    footer {
+        width: 100%;
+        box-sizing: unset;
+    }
+
+    .copyrightText {
+        box-sizing: unset;
+    }
+
+}
+
 @media (max-width:991px) {
     footer {
         padding: 40px;
@@ -196,7 +244,29 @@ footer p {
     .quickLinks,
     .contact {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
     }
+
+    #hemocentro {
+        width: 200px;
+        height: 200px;
+        margin-top: 4rem;
+        margin-bottom: 6rem;
+        border-radius: 100px;
+        transition: all .7s ease-in-out;
+    }
+    
+  
+    #hemocentro:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+        border: 5px solid #136497;
+        border-radius: 100px;
+    }
+
     .copyrightText {
         padding: 8px 40px;
     }

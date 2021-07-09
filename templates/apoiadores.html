@@ -29,43 +29,40 @@
                     <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
                     
                     <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
-                    <li class="principal"><a href="#">Aglomeração de Saberes</a>
+                    <li class="principal"><a href="">Aglomeração de Saberes</a>
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
                                     <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover"><a href="#">Equipe Apoiadora</a></li> 
+                            <li class="hover"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
-                    <li class="principal"><a href="#">Do Tempo do Ronca</a>
+                    <li class="principal"><a href="">Do Tempo do Ronca</a>
                         <ul>
-                            <li class="hover"><a href="#">História</a></li>
-                            <li class="hover"><a href="#">Edições Sapiens</a></li>
-                            <li class="hover"><a href="#">Edição Atual</a></li>
+                            <li class="hover"><a href="">História</a></li>
+                            <li class="hover"><a href="{% url 'historia-sapiens' event.slug %}">Edições Sapiens</a></li>
+                            <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                         </ul>
                     </li>
-                    <li class="principal"><a href="{% url 'days' 'sapiens' 'sapiens-familia' %}">Sapiens Família</a></li>  
-                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
+                    <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
+                    <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                     <li class="principal"><a href="">{{user_name}}</a>
+                    <li class="principal"><a href="">{{user_name}}</a>
                         <ul>
-                            
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
-
-                            {% if request.user.is_superuser %}
-                                <li> <a href="http://127.0.0.1:8000/admin/">Sala do Administrador</a></li>
-                            {% endif %}
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
                                     <button class="botao" type="submit">Sair</button>
                                 </form>
                             </li>
+                            {% if request.user.is_superuser %}
+                                <li> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
+                            {% endif %}
                             
-
                         </ul>
                     </li>
                 </ul>
@@ -77,6 +74,7 @@
             </nav>
         </div>
     </header>
+    
     <div class="team-container">
 
         <p class="team">Equipe Apoiadora</p>
@@ -86,171 +84,216 @@
 
 
         <div class="container">
-            <img src="{% static 'images/palestrante.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:acscocuglia@gmail.com">
+                <img src="{% static 'images/apoiadores/acscocuglia@gmail.com.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
+                <p class="name ">Prof Dr. Afonso Celso Scocuglia</p>
 
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/palestrante.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:mmasetto@gmail.com">
+                <img src="{% static 'images/apoiadores/mmasetto@gmail.com.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof Dr. Marcos Tarciso Masetto</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/ecohabitare/">
+                <img src="{% static 'images/apoiadores/@ecohabitare.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Profª Cláudia Passos Sant'Anna</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="http://www.celsovasconcellos.com.br/">
+                <img src="{% static 'images/apoiadores/www.celsovasconcellos.com.br.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Dr. Celso dos Santos Vasconcellos</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:paulo.padilha@paulofreire.org">
+                <img src="{% static 'images/apoiadores/paulo.padilha@paulofreire.org.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Dr. Paulo Roberto Padilha</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://apartilhadavida.com.br/">
+                <img src="{% static 'images/apoiadores/www.apartilhadavida.com.br.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Dr. Carlos Rodrigues Brandão</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/fabianomourademoura/">
+                <img src="{% static 'images/apoiadores/@fabianomourademoura.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Fabiano Moura de Moura</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:moran10@gmail.com">
+                <img src="{% static 'images/apoiadores/moran10@gmail.com.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Dr. José Manoel Moran</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:moran10@gmail.com">
+                <img src="{% static 'images/apoiadores/@ecohabitare (1).jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Mestre José Pacheco</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/lecopsilab/">
+                <img src="{% static 'images/apoiadores/@lecopsilab.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Dr. Luiz Carlos Serramo Lopez</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/miguelmaestre_yoga/">
+                <img src="{% static 'images/apoiadores/@miguelmaestre_yoga.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Professor Miguel Maestre</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/professordinho28/">
+                <img src="{% static 'images/apoiadores/@professordinho28.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Prof. Nysherdson Fernandes de Barros</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.instagram.com/ana_patchy/">
+                <img src="{% static 'images/apoiadores/@ana_patchy.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Profª Ana Patrícia Gomes Clementino</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:patricia.leite@cruzeirodosul.edu.br">
+                <img src="{% static 'images/apoiadores/patricia.leite@cruzeirodosul.edu.br.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Profª Dra. Patrícia Di Lório</p>
+
             </div>
         </div>
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="mailto:julianasaboia@cesuca.edu.br">
+                <img src="{% static 'images/apoiadores/julianasaboia@cesuca.edu.br.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Profª Dra. Patrícia Di Lório</p>
+
             </div>
         </div>
+
+        <div class="container">
+            <a href="mailto:dolabela@dolabela.com.br">
+                <img src="{% static 'images/apoiadores/dolabela@dolabela.com.br.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Prof. Me. Fernando Dolabela</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <a href="https://www.instagram.com/celsompadilha/">
+                <img src="{% static 'images/apoiadores/@celsompadilha.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Prof. Me. Celso Machado Maia Padilha</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <a href="https://www.instagram.com/dpansarelli/">
+                <img src="{% static 'images/apoiadores/@dpansarelli.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Professor Dr. Daniel Pansarelli</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <a href="mailto:gilsonportouft@gmail.com">
+                <img src="{% static 'images/apoiadores/gilsonportouft@gmail.com.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Prof. Dr. Francisco Gilson Rebouças Pôrto Junior</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <a href="mailto:ginapompeu@unifor.br">
+                <img src="{% static 'images/apoiadores/ginapompeu@unifor.br.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Profa. Dra. Gina Vidal Marcílio Pompeu</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <a href="https://www.instagram.com/edufinanceiraprobex/">
+                <img src="{% static 'images/apoiadores/@edufinanceiraprobex.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Prof. Dr. Wenner Glauco Lopes Lucena</p>
+
+            </div>
+        </div>
+
+
     </div>
     <div class="team-container">
 
@@ -258,50 +301,73 @@
         <div class="line"></div>
     </div>
     <div class="wrapper-flex">
+
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.linkedin.com/in/paulo-rodrigues-b9522390/">
+                <img src="{% static 'images/desenvolvedores/paulorodrigues.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Paulo Henrique Rodrigues Sousa</p>
+                <p class="description ">Gerente de Projeto</p>
             </div>
         </div>
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.linkedin.com/in/lukasdsf/">
+                <img src="{% static 'images/desenvolvedores/lukas.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Lukas de Sousa Figueiredo</p>
+                <p class="description ">Desenvolvedor front-end</p>
             </div>
         </div>
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.linkedin.com/in/juan-alencar/">
+                <img src="{% static 'images/desenvolvedores/juandiego.jpeg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Juan Diego Medeiros Alencar</p>
+                <p class="description ">Desenvolvedor front-end</p>
             </div>
         </div>
         <div class="container">
-            <img src="{% static 'images/marcos.jpg' %}" alt="" class="responsive-img">
+            <a href="https://www.linkedin.com/in/marcos-otavio-novais-a550a0217">
+                <img src="{% static 'images/desenvolvedores/marcos.jpg' %}" alt="" class="responsive-img">
+            </a>
             <div class="description-container ">
-                <p class="name ">Paulo Sousa</p>
-                <p class="description ">Doutor em Física Quantica</p>
-                <p class="palestra">Novas Construções sociais da aprendizagem</p>
-                <p class="bio ">Educador, Antropogogo, Especialista em Leitura e Escrita, MSc em Ciência da Educação pela Faculdade de Psicologia e de Ciências da Educação da Universidade do Porto. Idealizador da Escola da Ponte, em Portugal. É autor de inúmeros livros
-                    e artigos sobre educação e indutor de mais de 100 projetos para uma nova educação no Brasil. No Gaia Escola é Diretor Pedagógico dos Projetos de Formação.</p>
-                <a href="mailto:palestras@ecohabitare.com.br" class="mail">palestras@ecohabitare.com.br</a>
+                <p class="name ">Marcos Otávio Novais Antunes de Melo </p>
+                <p class="description ">Desenvolvedor back-end</p>
             </div>
         </div>
+        <div class="container">
+            <a href="https://www.linkedin.com/in/laissbarreto/">
+                <img src="{% static 'images/desenvolvedores/lais.jpeg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Laís de Sousa Barreto</p>
+                <p class="description ">Desenvolvedora front-end</p>
+            </div>
+        </div>
+        <div class="container">
+            <a href="https://www.linkedin.com/in/alexandre-faustino-222642207/">
+                <img src="{% static 'images/desenvolvedores/alexandre.jpg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Alexandre Faustino </p>
+                <p class="description ">Desenvolvedor front-end</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <a href="https://www.linkedin.com/in/walace-sartori-bonfim/">
+                <img src="{% static 'images/desenvolvedores/walace.jpeg' %}" alt="" class="responsive-img">
+            </a>
+            <div class="description-container ">
+                <p class="name ">Walace Sartori Bonfim</p>
+                <p class="description ">Techleader</p>
+            </div>
+        </div>
+
+
     </div>
 
 

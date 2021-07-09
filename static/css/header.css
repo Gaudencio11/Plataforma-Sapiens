@@ -167,7 +167,7 @@ nav {
   html,
   body {
       width: 100%;
-      overflow: hidden;
+      /* overflow: hidden; */
   }
 
   header {
@@ -223,7 +223,7 @@ nav {
   html,
   body {
       width: 100%;
-      overflow: hidden;
+      /* overflow: hidden; */
   }
   header {
       padding: 5px;
@@ -280,7 +280,7 @@ nav {
 @media screen and (max-width:990px) {
   body {
       /* position: relative; */
-      overflow-x: hidden;
+      /* overflow-x: hidden; */
       /* width: 100%; */
   }
   nav {
@@ -437,7 +437,7 @@ nav {
   html,
   body {
       width: 100%;
-      overflow: hidden;
+      /* overflow: hidden; */
   }
   header {
       width: 100%;

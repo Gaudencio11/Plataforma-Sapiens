@@ -44,7 +44,7 @@ urlpatterns = [
     #site urls
     path('hall/', menuView, name = 'menu'),
     path('<slug:slug1>/historia-sapiens', padletCardView, name='historia-sapiens'),
-    path('<slug:slug1>/<slug:slug2>-edicao/', padletView, name='padlet'),
+    path('<slug:slug1>/<slug:slug2>/<slug:slug3>-edicao/', padletView, name='padlet'),
     path('<slug:slug1>/desopilar', desopilarView, name='desopilar'),
     path('<slug:slug1>/programacao', programacaoView, name = 'programacao'),
     path('<slug:slug1>/apoiadores', apoiadoresView, name = 'apoiadores'),

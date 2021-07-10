@@ -7,7 +7,8 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 auto; /* NOVO*/
+    margin: 0 auto;
+    /* NOVO*/
 }
 
 footer .footer-container {
@@ -70,17 +71,19 @@ footer p {
     color: #999;
 }
 
-.patrocinador-lista { 
+.patrocinador-lista {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    
+
     /* margin: 0 auto; */
 }
 
 .patrocinador-img {
-    margin: 15px 15px;                  /* antes era 10px 10px */
-    width: 90px;                       /* antes era 60px, heigth tb */
+    margin: 15px 15px;
+    /* antes era 10px 10px */
+    width: 90px;
+    /* antes era 60px, heigth tb */
     height: 90px;
     border: none;
     border-radius: 50px;
@@ -91,21 +94,21 @@ footer p {
 
 .patrocinador-img:hover {
     transform: scale(1.5);
-    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px rgba(0, 0, 0, .5));
     border: 5px solid #136497;
     border-radius: 50%;
 }
 
 #hemocentro-div {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     margin-right: 1rem;
 }
 
 #hemocentro {
     width: 150px;
     height: 150px;
-    
+
     border-radius: 120px;
     transition: all .7s ease-in-out;
 }
@@ -113,7 +116,7 @@ footer p {
 
 #hemocentro:hover {
     transform: scale(1.2);
-    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px rgba(0, 0, 0, .5));
     border: 5px solid #136497;
 }
 
@@ -156,7 +159,8 @@ footer p {
 }
 
 /* email e whatsapp */
-.contato span, p a {
+.contato span,
+p a {
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -167,7 +171,7 @@ footer p {
     display: inline-block;
 }
 
-.contato p a:hover { 
+.contato p a:hover {
     color: #999;
 }
 
@@ -231,15 +235,18 @@ footer p {
 
 @media (max-width:991px) {
     footer {
-        padding: 40px;
+        padding: 16px;
     }
+
     footer .footer-container {
         flex-direction: column;
     }
+
     footer .footer-container .sec {
         margin-right: 0;
         margin-bottom: 40px;
     }
+
     footer .footer-container .sec.aboutus,
     .quickLinks,
     .contact {
@@ -258,16 +265,16 @@ footer p {
         border-radius: 100px;
         transition: all .7s ease-in-out;
     }
-    
-  
+
+
     #hemocentro:hover {
         transform: scale(1.1);
-        filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+        filter: drop-shadow(15px 10px 5px rgba(0, 0, 0, .5));
         border: 5px solid #136497;
         border-radius: 100px;
     }
 
     .copyrightText {
-        padding: 8px 40px;
+        padding: 8px 8px;
     }
 }

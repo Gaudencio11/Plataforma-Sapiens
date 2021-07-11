@@ -163,7 +163,7 @@ def padletView(request, slug1, slug2, slug3):
     rooms = Room.objects.all()
     event = Event.objects.all()[0] 
     
-    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'conta':slug2, "edicao":slug3})
+    return render(request, 'padlet.html', {'event':event, 'rooms':rooms, 'slug1':slug1,'slug2':slug2,'conta':slug2, "edicao":slug3, "user_name":user_name})
 
 
 def desopilarView(request, slug1):
@@ -212,6 +212,23 @@ def apoiadoresView(request, slug1):
 
 
     return render(request, 'apoiadores.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
+
+#feito específico para a história da sapiens
+def historiaView(request, slug1):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
+    event = Event.objects.all()[0]
+    rooms = Room.objects.all() 
+
+
+    return render(request, 'historia.html', {'event': event, 'rooms':rooms, 'slug1':slug1, "user_name":user_name})
 
 
 
@@ -274,9 +291,22 @@ def loginRedirect(request):
 
 
 
-"""def testeStatic2(request):
+def teste1(request):
 
-    return render(request, 'teste2.html', {})"""
+    if not request.user.is_authenticated:
+        return redirect('/')
 
+    if not request.user.is_superuser: 
+        user_name = request.user.first_name.split()
+        user_name = user_name[0]
+    else:
+        user_name = request.user.username
+
+    event = Event.objects.all()[0]
+    rooms = Room.objects.all() 
+
+
+    return render(request, 'historia.html', {'event': event, 'rooms':rooms, "user_name":user_name})
+    
 
 

@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect, padletCardView
+from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect, padletCardView, historiaView, teste1
 from allauth.account  import views
 
 #Have to configure to all paths use the slug
@@ -43,16 +43,19 @@ urlpatterns = [
 
     #site urls
     path('hall/', menuView, name = 'menu'),
-    path('<slug:slug1>/historia-sapiens', padletCardView, name='historia-sapiens'),
     path('<slug:slug1>/<slug:slug2>/<slug:slug3>-edicao/', padletView, name='padlet'),
     path('<slug:slug1>/desopilar', desopilarView, name='desopilar'),
     path('<slug:slug1>/programacao', programacaoView, name = 'programacao'),
     path('<slug:slug1>/apoiadores', apoiadoresView, name = 'apoiadores'),
+    path('<slug:slug1>/edicoes-sapiens', padletCardView, name='edicoes_sapiens'),
+    path('<slug:slug1>/historia-sapiens', historiaView, name = 'historia'),
     path('<slug:slug1>/<slug:slug2>/dias', daysView, name='days'),
     path('<slug:slug1>/<slug:slug2>/dia-<slug:slug3>/', roomsGenericView, name = 'rooms'),
     path('excell_users/', get_excell_users, name = "get_excell_users"),
-    path('bem-vindo/', loginRedirect, name='bem_vindo')
+    path('bem-vindo/', loginRedirect, name='bem_vindo'),
     #Testes
+    path('teste/', teste1, name='teste')
+
     
 ]
 

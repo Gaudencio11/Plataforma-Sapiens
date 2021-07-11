@@ -6,16 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palestras</title>
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
 
     <link rel="stylesheet" href="{% static 'css/apoiadores.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    
+    <title>Apoiadores</title>
 </head>
 
 <body>
@@ -41,8 +43,8 @@
                     </li>
                     <li class="principal"><a href="">Do Tempo do Ronca</a>
                         <ul>
-                            <li class="hover"><a href="">História</a></li>
-                            <li class="hover"><a href="{% url 'historia-sapiens' event.slug %}">Edições Sapiens</a></li>
+                            <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
+                            <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
                             <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                         </ul>
                     </li>
@@ -275,7 +277,7 @@
 
         <div class="container">
             <a href="mailto:ginapompeu@unifor.br">
-                <img src="{% static 'images/apoiadores/ginapompeu@unifor.br.jpg' %}" alt="" class="responsive-img">
+                <img src="{% static 'images/apoiadores/gina_vidal.jpeg' %}" alt="" class="responsive-img">
             </a>
             <div class="description-container ">
                 <p class="name ">Profa. Dra. Gina Vidal Marcílio Pompeu</p>

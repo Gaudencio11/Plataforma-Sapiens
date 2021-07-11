@@ -42,8 +42,8 @@
                         </li>
                         <li class="principal"><a href="">Do Tempo do Ronca</a>
                             <ul>
-                                <li class="hover"><a href="">História</a></li>
-                                <li class="hover"><a href="{% url 'historia-sapiens' event.slug %}">Edições Sapiens</a></li>
+                                <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
+                                <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
                                 <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                             </ul>
                         </li>
@@ -90,19 +90,8 @@
                 </div>
             </div>
             {% endfor %}
-            
         
-            <div class="cards-container">
-                    
-                <div class='banner-img' class="responsive-img">
-                    <img src="{% static 'images/cafe.jpg' %}" alt="" class="responsive-img">
-                </div>
-                <div class="description-container">
-                    <p class="name" title="">3ª Edição - Sapiens</p>
-                    <p class="description">Processo avaliativo no ensino superior</p>
-                    <a href="{% url 'padlet' event.slug 'um' '3' %}">Ingressar</a>
-                </div>
-            </div>
+            
         </section>
     
     

@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect, padletCardView, historiaView, teste1
+from .views import  menuView, daysView, roomsGenericView, padletView, desopilarView, programacaoView, get_excell_users, apoiadoresView, loginRedirect, padletCardView, historiaView
 from allauth.account  import views
 
 #Have to configure to all paths use the slug
@@ -54,7 +54,7 @@ urlpatterns = [
     path('excell_users/', get_excell_users, name = "get_excell_users"),
     path('bem-vindo/', loginRedirect, name='bem_vindo'),
     #Testes
-    path('teste/', teste1, name='teste')
+    #path('teste/', teste1, name='teste')
 
     
 ]

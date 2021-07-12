@@ -67,6 +67,10 @@ nav {
     padding: 20px 0;
 }
 
+.bigger {
+    padding: 20px 0px;
+}
+
 .nav-links li ul {
     left: 0;
     margin-right: 10px;
@@ -165,7 +169,7 @@ nav {
     .nav-links {
         position: absolute;
         right: 0;
-        height: 86vh;
+        height: 84vh;
         top: 9.3vh;
         background: #07396C;
         display: flex;
@@ -206,6 +210,10 @@ nav {
         margin-top: 0;
         height: 50%;
         filter: drop-shadow(5px 5px 6px black);
+    }
+
+    .botao {
+        padding: 0;
     }
 
     .burger {

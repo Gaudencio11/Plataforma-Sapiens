@@ -29,17 +29,17 @@
                     <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
                     
                     <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
-                    <li class="principal"><a href="">Aglomeração de Saberes</a>
+                    <li class="principal"><a >Aglomeração de Saberes</a>
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
-                                    <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                    <li class="bigger"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover bigger"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
-                    <li class="principal"><a href="">Do Tempo do Ronca</a>
+                    <li class="principal"><a >Do Tempo do Ronca</a>
                         <ul>
                             <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
                             <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
@@ -49,7 +49,7 @@
                     <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                    <li class="principal"><a href="">{{user_name}}</a>
+                    <li class="principal"><a >{{user_name}}</a>
                         <ul>
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>

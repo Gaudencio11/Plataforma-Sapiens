@@ -29,17 +29,17 @@
                     <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
                     
                     <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
-                    <li class="principal"><a href="">Aglomeração de Saberes</a>
+                    <li class="principal"><a>Aglomeração de Saberes</a>
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
-                                    <li><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                    <li class="bigger"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover bigger"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
-                    <li class="principal"><a href="">Do Tempo do Ronca</a>
+                    <li class="principal"><a>Do Tempo do Ronca</a>
                         <ul>
                             <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
                             <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
@@ -49,7 +49,7 @@
                     <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                    <li class="principal"><a href="">{{user_name}}</a>
+                    <li class="principal"><a>{{user_name}}</a>
                         <ul>
                             
                             <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
@@ -83,7 +83,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">1ª Edição - Sapiens</p>
-                <p class="description">Metodologias ativas de ensino e aprendizagem essenciais para fortalecer o ensino presencial e semipresencial</p>
+                <p class="description">Normas e procedimentos acadêmicos</p>
                 <a href="{% url 'padlet' event.slug 'um' '1'  %}">Ingressar</a>
             </div>
         </div> 
@@ -94,7 +94,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">2ª Edição - Sapiens</p>
-                <p class="description">Metodologias ativas de ensino e aprendizagem essenciais para fortalecer o ensino presencial e semipresencial</p>
+                <p class="description">Metodologias ativas de ensino e aprendizagem essenciais para fortalecer o ensino</p>
                 <a href="{% url 'padlet' event.slug 'um' '2'  %}">Ingressar</a>
             </div>
         </div> 
@@ -182,7 +182,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 1ª Edição</p>
-                
+                <p class="description">Fotos da 1ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'tres' '1'  %}">Ingressar</a>
             </div>
         </div> 
@@ -193,7 +193,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 2ª Edição</p>
-                
+                <p class="description">Fotos da 2ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'tres' '2'  %}">Ingressar</a>
             </div>
         </div> 
@@ -204,7 +204,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 3ª Edição</p>
-                
+                <p class="description">Fotos da 3ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'tres' '3' %}">Ingressar</a>
             </div>
         </div> 
@@ -215,7 +215,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 4ª Edição</p>
-                
+                <p class="description">Fotos da 4ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'tres' '4' %}">Ingressar</a>
             </div>
         </div> 
@@ -226,7 +226,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 5ª Edição</p>
-                
+                <p class="description">Fotos da 5ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'tres' '5'  %}">Ingressar</a>
             </div>
         </div> 
@@ -237,7 +237,7 @@
             </div>
             <div class="description-container">
                 <p class="name" title="">Sapiens Kids - 6ª Edição</p>
-                
+                <p class="description">Fotos da 6ª Edição </p>
                 <a href="{% url 'padlet' event.slug 'quatro' '6' %}">Ingressar</a>
             </div>
         </div> 
@@ -251,7 +251,7 @@
                 <ul class="patrocinador-lista">
                     <li><a href="https://instagram.com/atelierdocebia?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/atelier-doce-bia.png'%}" alt="Logo do Patrocinador Atelier Doce Bia"></a></li>
 
-                    <li><a href="https://api.whatsapp.com/qr/3YFOKGEMMH52L1" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/bichos-e-caprichos.png' %}" alt="Logo do Patrocinador Bichos e Caprichos"></a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=5583998280859&text=Oi%2C%20vim%20pela%20Sapiens!" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/bichos-e-caprichos.png' %}" alt="Logo do Patrocinador Bichos e Caprichos"></a></li>
 
                     <li><a href="https://instagram.com/ferrazemaul?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/ferraz-e-maul-assessoria.png' %}" alt="Logo do Patrocinador Ferraz e Maul"></a></li>
 
@@ -261,7 +261,7 @@
 
                     <li><a href="http://www.saobraz.com.br/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/saobraz.png' %}" alt="Logo do Patrocinador São Braz"></a></li>
 
-                    <li><a href="https://api.whatsapp.com/qr/WHW3QNBK45BTN1" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/wz-informatica.png'%}" alt="Logo do Patrocinador WZ Informática"></a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=5583988782279&text=Oi%20vim%20pela%20Sapiens!" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/wz-informatica.png'%}" alt="Logo do Patrocinador WZ Informática"></a></li>
 
                     <li><a href="https://api.whatsapp.com/message/IWINW2MNSKU3H1?src=qr" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/controle-med.png'%}" alt="Logo do Patrocinador Controle Med Lab"></a></li>
 
@@ -304,7 +304,7 @@
                 </ul>
             </div>
         </div>
-    </footer>
+      </footer>
     
     <div class="copyrightText">
         <p>© 2021 Todos os direitos reservados.</p>

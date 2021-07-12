@@ -291,7 +291,7 @@ def loginRedirect(request):
 
 
 
-def teste1(request):
+"""def teste1(request):
 
     if not request.user.is_authenticated:
         return redirect('/')
@@ -306,7 +306,7 @@ def teste1(request):
     rooms = Room.objects.all() 
 
 
-    return render(request, 'historia.html', {'event': event, 'rooms':rooms, "user_name":user_name})
+    return render(request, 'historia.html', {'event': event, 'rooms':rooms, "user_name":user_name})"""
     
 
 

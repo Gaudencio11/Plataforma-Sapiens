@@ -131,9 +131,9 @@ function addHotspot(position, name, link, hotspot) {
 addHotspot(new THREE.Vector3(80, 0.5, -30), rooms_names[0]['name'], rooms_names[0]['url'], '../static/images/hotspots/smoking.png')
 addHotspot(new THREE.Vector3(50, 1, -30), rooms_names[0]['name'], rooms_names[0]['url'], '../static/images/hotspots/vestido.png')
 addHotspot(new THREE.Vector3(75, -20, -150), rooms_names[1]['name'], rooms_names[1]['url'], '../static/images/hotspots/cafe.png')
-addHotspot(new THREE.Vector3(130, -20, 120), rooms_names[2]['name'], rooms_names[2]['url'], '../static/images/hotspots/caderninho.png')
+addHotspot(new THREE.Vector3(130, -20, 120), rooms_names[3]['name'], rooms_names[3]['url'], '../static/images/hotspots/caderninho.png')
 addHotspot(new THREE.Vector3(-30, -5, 60), rooms_names[4]['name'], rooms_names[4]['url'], '../static/images/hotspots/nordeste.png')
-addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[3]['name'], rooms_names[3]['url'], '../static/images/hotspots/logo-familia.png')
+addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[2]['name'], rooms_names[2]['url'], '../static/images/hotspots/logo-familia.png')
 
 //Linkando sites nos hotspots
 function abreLink(link) {

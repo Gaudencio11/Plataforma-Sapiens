@@ -6,18 +6,15 @@ const container = document.body
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 200)
 const renderer = new THREE.WebGLRenderer({ antialias: true })
-//renderer.setPixelRatio( window.devicePixelRatio );
 const controls = new THREE.OrbitControls(camera, renderer.domElement)
 const hotspot = document.querySelector('.hotspot')
 let hotspotActive = false
-
 renderer.setSize(window.innerWidth, window.innerHeight)
 container.appendChild(renderer.domElement)
-
 controls.enablePan = false
 controls.enableZoom = false
 controls.autoRotate = false
-controls.autoRotateSpeed = 0.2
+/* controls.autoRotateSpeed = 0.2 */
 controls.enableDamping = true
 
 //Posicionando a câmera (nossa visão)
@@ -87,15 +84,14 @@ function onMouseMove(e) {
             hotspot.style.top = ((-1 * p.y + 1) * window.innerHeight / 2) + 'px'
             hotspot.style.left = ((p.x + 1) * window.innerWidth / 2) + 'px'
             hotspot.classList.add('is-active')
-
-            //Sempre que o hotspot é construído é necessário chamar o atributo link dentro do
-            //setAttribute
-            hotspot.setAttribute('onclick', 'abreLink("' + intersect.object.link + '")')
             hotspot.innerHTML = intersect.object.name
             hotspotActive = true
             foundSprite = true
             console.log(intersect.object.scale)
             console.log(hotspot.style.top)
+            //Sempre que o hotspot é construído é necessário chamar o atributo link dentro do
+            //setAttribute
+            hotspot.setAttribute('onclick', 'abreLink("' + intersect.object.link + '")')
         }
     })
     if (foundSprite === false && hotspotActive) {
@@ -113,31 +109,31 @@ function onMouseWheel(event) {
     }
     camera.fov = Math.max(40, Math.min(100, camera.fov))
     camera.updateProjectionMatrix()
-
 }
 
 //Criando Hotspots!
-
-function addHotspot(position, name, link) {
-    let spriteMap = new THREE.TextureLoader().load('../static/images/animation-acenando.gif')
+function addHotspot(position, name, link, hotspot) {
+    let spriteMap = new THREE.TextureLoader().load(hotspot)
     let spriteMaterial = new THREE.SpriteMaterial({
         map: spriteMap
     })
     let sprite = new THREE.Sprite(spriteMaterial)
     sprite.name = name
-    sprite.link = link   // no objeto sprite foi necessário colocar um atributo pra guardar o link passado como parâmetro 
-    sprite.position.copy(position.clone().normalize().multiplyScalar(25))
-    sprite.scale.multiplyScalar(5)
+    sprite.link = link // no objeto sprite foi necessário colocar um atributo pra guardar o link passado como parâmetro 
+    sprite.hotspot = hotspot
+    sprite.position.copy(position.clone().normalize().multiplyScalar(30))
+    sprite.scale.multiplyScalar(12)
     scene.add(sprite)
 }
 
 //Adicionando Hotspots na tela
-addHotspot(new THREE.Vector3(50, 0.5, 2), rooms_names[0]['name'], rooms_names[0]['url'])
-addHotspot(new THREE.Vector3(75, -20, -150), rooms_names[1]['name'], rooms_names[1]['url'])
-addHotspot(new THREE.Vector3(120, -20, 120), rooms_names[2]['name'], rooms_names[2]['url'])
-addHotspot(new THREE.Vector3(-30, -5, 60), rooms_names[3]['name'], rooms_names[3]['url'])
-addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[4]['name'], rooms_names[4]['url'])
 
+addHotspot(new THREE.Vector3(80, 0.5, -30), rooms_names[0]['name'], rooms_names[0]['url'], '../static/images/hotspots/smoking.png')
+addHotspot(new THREE.Vector3(50, 1, -30), rooms_names[0]['name'], rooms_names[0]['url'], '../static/images/hotspots/vestido.png')
+addHotspot(new THREE.Vector3(75, -20, -150), rooms_names[1]['name'], rooms_names[1]['url'], '../static/images/hotspots/cafe.png')
+addHotspot(new THREE.Vector3(130, -20, 120), rooms_names[2]['name'], rooms_names[2]['url'], '../static/images/hotspots/caderninho.png')
+addHotspot(new THREE.Vector3(-30, -5, 60), rooms_names[4]['name'], rooms_names[4]['url'], '../static/images/hotspots/nordeste.png')
+addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[3]['name'], rooms_names[3]['url'], '../static/images/hotspots/logo-familia.png')
 
 //Linkando sites nos hotspots
 function abreLink(link) {
@@ -151,4 +147,9 @@ window.addEventListener('resize', onResize)
 container.addEventListener('mousemove', onMouseMove)
 
 
+/* addHotspot(new THREE.Vector3(50, 0.5, 2), rooms_names[0]['name'], rooms_names[0]['url'])
+addHotspot(new THREE.Vector3(75, -20, -150), rooms_names[1]['name'], rooms_names[1]['url'])
+addHotspot(new THREE.Vector3(120, -20, 120), rooms_names[2]['name'], rooms_names[2]['url'])
+addHotspot(new THREE.Vector3(-30, -5, 60), rooms_names[3]['name'], rooms_names[3]['url'])
+addHotspot(new THREE.Vector3(-60, -5, -40), rooms_names[4]['name'], rooms_names[4]['url']) */
 

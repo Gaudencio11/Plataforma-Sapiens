@@ -49,19 +49,20 @@ class Room(models.Model):
         verbose_name = 'Sala'
 
 
-#This is the content of each room. This is where people will click at bb link
+#This is the content of each room. This is where people will click to zoom link
 class Program(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE, null= True, blank=True) #many to one relationship
-    name = models.CharField(max_length=50) 
+    name = models.CharField(max_length=100, null= True, blank=True) 
+    title = models.CharField(max_length=100, null= True, blank=True)
     day = models.IntegerField(default=1)
     image = models.CharField(max_length=250, null= True, blank=True)
     date = models.DateField(max_length=50, )
     hour = models.CharField(max_length=250, null=True ,blank=True)
-    link = models.CharField(max_length=250, null= True, blank=True)
+    link = models.CharField(max_length=1000, null= True, blank=True)
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
     class Meta:
         verbose_name = 'Atividade'

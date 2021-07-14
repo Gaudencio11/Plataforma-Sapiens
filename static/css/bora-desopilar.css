@@ -30,8 +30,8 @@ body {
   padding: 1rem;
   font-weight: bold;
   font-size: 1rem;
-  color: #fdfdfd;
-  text-shadow:2px 2px 2px rgb(0,0,0, .6);
+  color: #fff;
+  
   letter-spacing: .1rem;
   background-color: rgb(240, 205, 6);
   border: none;
@@ -41,7 +41,12 @@ body {
 
 .btn-desopilar:hover {
   transform: scale(1.2);
-  filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+  filter: drop-shadow(15px 10px 5px rgba(0,0,0,.2));
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Responsividade */

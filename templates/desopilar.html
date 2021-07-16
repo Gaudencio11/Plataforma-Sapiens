@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/bora-desopilar.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/carrossel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rooms.css' %}">
 
     <title>Bora desopilar?</title>
 </head>
@@ -33,17 +34,17 @@
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
-                                    <li class="bigger"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                    <li class="hover submenu"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover bigger"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover submenu"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
                     <li class="principal"><a>Do Tempo do Ronca</a>
                         <ul>
-                            <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
-                            <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
-                            <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
+                            <li class="hover submenu"><a href="{% url 'historia' event.slug %}">História</a></li>
+                            <li class="hover submenu"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
+                            <li class="hover submenu"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                         </ul>
                     </li>
                     <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
@@ -52,15 +53,15 @@
                     <li class="principal"><a>{{user_name}}</a>
                         <ul>
                             
-                            <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
+                            <li class="hover submenu"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <button class="botao" type="submit">Sair</button>
+                                    <button class="hover botao" type="submit">Sair</button>
                                 </form>
                             </li>
                             {% if request.user.is_superuser %}
-                                <li> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
+                                <li class="hover submenu"> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
                             {% endif %}
                             
                         </ul>
@@ -88,10 +89,12 @@
             <!--radio buttons end-->
             <!--slide images start-->
             <div class="slide first">
-                <div class="item"><img src="{% static 'images/carrossel/1bora-alongar-nysherdson.png' %}" alt=""></div>
+                <div class="item">
+                    
+                    <img src="{% static 'images/carrossel/1bora-alongar-nysherdson.png' %}" alt=""></div>
             </div>
             <div class="slide">
-                <div class="item"><img src="{% static 'images/carrossel/2yoga-e-respiracao.png' %}" alt=""></div>
+                <div class="item"><img src="{% static 'images/carrossel/yoga-e-respiracao.png' %}" alt=""></div>
             </div>
             <div class="slide">
                 <div class="item"><img src="{% static 'images/carrossel/3treino-funcional-nysherdson.png' %}" alt=""></div>
@@ -126,25 +129,81 @@
             <!--manual navigation end-->
         </div>
     </div>
+    
 
-    <h2 class="slide-subtitle">Venha desopilar conosco!</h2>
-    <h3 class="slide-subtitle2">Preparamos algumas atividades relaxantes para você dar aquela descontraída!</h3>
-    <div class="botao-desopilar-center">
-        <button class="btn-desopilar"><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzkyMDZjODQtYjc3Yy00NDBjLWIzZDktYjVkOTE4ZDI4YTBm%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d" target="_blank">Ir para a sala</a></button>
-    </div>
+        <section class="cards"> 
+            <div class="cards-container">
+                
+                <div class='banner-img' class="responsive-img">
+                    <img src="{% static 'images/cards/bora-alongar-nysherdson (1).png' %}" alt="" class="responsive-img">
+                </div>
+                <div class="description-container">
+                    <p class="name" title="">Bora Alongar</p>
+                    <p class="description">Data: 19/07 </p>
+                    <p class="description">Hora: 10h </p>
+                    <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzkyMDZjODQtYjc3Yy00NDBjLWIzZDktYjVkOTE4ZDI4YTBm%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d ">Ingressar</a>
+                </div>
+            </div> 
+        <div class="cards-container">
+            <div class='banner-img' class="responsive-img">
+                <img src="{% static 'images/cards/yoga-e-respiracao (1).png' %}" alt="" class="responsive-img">
+            </div>
+            <div class="description-container">
+                <p class="name" title="">Yoga e Respiração no Dia a Dia</p>
+                <p class="description">Data: 20/07 </p>
+                <p class="description">Hora: 08h </p>
+                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjgyYzM3YjMtZjEyYy00MTRhLTk3M2YtNzYzNGYxNWVjZTll%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d">Ingressar</a>
+            </div>
+        </div> 
+        <div class="cards-container">
+            <div class='banner-img' class="responsive-img">
+                <img src="{% static 'images/cards/treino-funcional-nysherdson (1).png' %}" alt="" class="responsive-img">
+            </div>
+            <div class="description-container">
+                <p class="name" title="">Treino Funcional</p>
+                <p class="description">Data: 20/07 </p>
+                <p class="description">Hora: 10h </p>
+                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjgyYzM3YjMtZjEyYy00MTRhLTk3M2YtNzYzNGYxNWVjZTll%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d">Ingressar</a>
+            </div>
+        </div> 
+        <div class="cards-container">
+            <div class='banner-img' class="responsive-img">
+                <img src="{% static 'images/cards/ginastica-laboral (1).png' %}" alt="" class="responsive-img">
+            </div>
+            <div class="description-container">
+                <p class="name" title="">Relaxando com Ginástica Laboral</p>
+                <p class="description">Data: 20/07 </p>
+                <p class="description">Hora: 15h </p>
+                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzkyMDZjODQtYjc3Yy00NDBjLWIzZDktYjVkOTE4ZDI4YTBm%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d">Ingressar</a>
+            </div>
+        </div> 
+        <div class="cards-container">
+            <div class='banner-img' class="responsive-img">
+                <img src="{% static 'images/cards/mindfullness (1).png' %}" alt="" class="responsive-img">
+            </div>
+            <div class="description-container">
+                <p class="name" title="">Mindfulness e Auto Compaixão</p>
+                <p class="description">Data: 20/07 </p>
+                <p class="description">Hora: 19h </p>
+                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzkyMDZjODQtYjc3Yy00NDBjLWIzZDktYjVkOTE4ZDI4YTBm%40thread.v2/0?context=%7b%22Tid%22%3a%2271006117-0ed8-4080-96ab-e1f74197b7ee%22%2c%22Oid%22%3a%225ebe59c8-47a5-4008-8214-06dc47cb6ad8%22%7d">Ingressar</a>
+            </div>
+        </div> 
+        </section>
+    
     <!--image slider end-->
 
     
     <footer>
         <div class="footer-container">
             <div class="sec quickLinks">
-                <h2>Patrocinadores</h2>
+                <h2>Parceiros</h2>
                 <ul class="patrocinador-lista">
+                    <li><a href="https://wa.me/558331333473" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/hemocentro.png' %}" alt="Logo da Hemocentro: Educação pela Saúde" ></a></li>
+
                     <li><a href="https://instagram.com/atelierdocebia?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/atelier-doce-bia.png'%}" alt="Logo do Patrocinador Atelier Doce Bia"></a></li>
 
                     <li><a href="https://api.whatsapp.com/send?phone=5583998280859&text=Oi%2C%20vim%20pela%20Sapiens!" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/bichos-e-caprichos.png' %}" alt="Logo do Patrocinador Bichos e Caprichos"></a></li>
 
-                    <li><a href="https://instagram.com/ferrazemaul?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/ferraz-e-maul-assessoria.png' %}" alt="Logo do Patrocinador Ferraz e Maul"></a></li>
 
                     <li><a href="https://wa.me/message/M6TRUVSLVS76B1" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/livraria-do-luiz.png' %}" alt="Logo do Patrocinador Livraria do Luiz"></a></li>
 
@@ -158,17 +217,16 @@
 
                     <li><a href="https://www.instagram.com/diporte_/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/diporte.png'%}" alt="Logo do Patrocinador Diporte"></a></li>
 
-                    <li><a href="http://somoslema.com.br/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/lema-engenharia.png'%}" alt="Logo do Patrocinador Lema Engenharia"></a></li>
-
                     <li><a href="https://instagram.com/drtnt?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/dr-tnt.png'%}" alt="Logo do Patrocinador Dr. TNT"></a></li>
 
                     <li><a href="https://www.instagram.com/saudemedica/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/saude-medica.png'%}" alt="Logo do Patrocinador Saúde Médica"></a></li>
                 </ul>
             </div>
-            <div class="hemocentro-div">
-                <h2>Ajude o hemocentro</h2>
-                <a href="https://wa.me/558331333473" target="_blank"><img id="hemocentro" src="{% static 'images/patrocinadores/hemocentro.png' %}" alt="Logo da Hemocentro: Educação pela Saúde" ></a>
+            <div class="bigPatrocinador-div">
+                <a href="https://instagram.com/ferrazemaul?utm_medium=copy_link" target="_blank"><img class="bigPatrocinador" src="{% static 'images/patrocinadores/ferraz-e-maul-assessoria.png' %}" alt="Logo do Patrocinador Ferraz e Maul"></a>
+                <a href="http://somoslema.com.br/" target="_blank"><img class="bigPatrocinador" src="{% static 'images/patrocinadores/lema-engenharia.png' %}" alt="Logo do Patrocinador Lema Engenharia"></a>
             </div>
+
             <div class="sec contact">
                 <h2>Informações para Contato</h2>
                 <ul class="info">

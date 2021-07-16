@@ -16,14 +16,15 @@ body {
 }
 
 
-.botao-desopilar-center {
+.botao-desopilar-center a{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .btn-desopilar {
-  position: relative;
+  /* position: relative; */
+  text-decoration: none;
   bottom: 8.5rem;                 /*              NEW              */
   text-align: center;
   width: 20%;
@@ -31,12 +32,21 @@ body {
   font-weight: bold;
   font-size: 1rem;
   color: #fff;
-  
+  cursor: pointer;
   letter-spacing: .1rem;
   background-color: rgb(240, 205, 6);
   border: none;
   border-radius: 50px;
   transition: all .7s ease;
+  
+}
+
+.text {
+  margin-bottom: 250px;
+}
+
+.cards-container a {
+  text-decoration: underline;
 }
 
 .btn-desopilar:hover {
@@ -44,9 +54,10 @@ body {
   filter: drop-shadow(15px 10px 5px rgba(0,0,0,.2));
 }
 
-button a {
+ a {
   color: #fff;
   text-decoration: none;
+  
 }
 
 /* Responsividade */
@@ -56,4 +67,10 @@ button a {
     width: 20rem;
   }
   
+}
+
+@media (max-width: 1024px) {
+  .cards {
+      margin-top: 0px !important;
+  }
 }

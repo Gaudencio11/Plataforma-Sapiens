@@ -4,7 +4,7 @@
     border-radius: 10px;
     overflow: hidden;
     margin: 0 auto;
-    margin-top: 220px;                                  /*  NOVO */
+    margin-top: 50px;                                  /*  NOVO */
     margin-bottom: 50px;                                /*  NOVO */
 }
 .slides{
@@ -74,19 +74,19 @@
 }
 
 #radio1:checked ~ .navigationAuto .auto-btn1{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 #radio2:checked ~ .navigationAuto .auto-btn2{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 #radio3:checked ~ .navigationAuto .auto-btn3{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 #radio4:checked ~ .navigationAuto .auto-btn4{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 #radio5:checked ~ .navigationAuto .auto-btn5{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 
 
@@ -94,16 +94,16 @@
 
 .navigationManual{
     position: absolute;                               /* NOVO */
-    top: 520px;                                        /* NOVO */
+    /* top: 520px;                                        NOVO */
    /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
     width: 80%;
-    margin-top: -40px;
+    margin-top: 260px;
     display: flex;
     justify-content: center;
 }
 
 .manual-btn{
-    border: 2px solid #40D3DC;
+    border: 2px solid rgb(240, 205, 6);
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
@@ -114,7 +114,7 @@
     margin-right: 40px;
 }
 .manual-btn:hover{
-    background: #40D3DC;
+    background: rgb(240, 205, 6);
 }
 #radio1:checked ~ .first{
     margin-left: 0;
@@ -172,7 +172,7 @@
 }
 
 .slide-subtitle2 {
-    margin-bottom: 250px;
+    margin-bottom: 10px;
 }
 
 .slide-subtitle, .slide-subtitle2 {
@@ -215,7 +215,7 @@
         top: 520px;                                        /* NOVO */
        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
        width: 80%;
-        margin-top: -50px;
+        margin-top: 50px;
         display: flex;
         justify-content: center;
     }
@@ -241,7 +241,7 @@
         top: 520px;                                        /* NOVO */
        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
        width: 80%;
-        margin-top: -80px;
+        margin-top: 20px;
         display: flex;
         justify-content: center;
     }
@@ -249,6 +249,8 @@
         margin-right: 20px;
     }
 }
+
+
 @media screen and (min-width:901px) and (max-width:1000px){
     .navigationAuto{
         position: absolute;                                  /* NOVO */
@@ -263,16 +265,16 @@
         margin-right: 5px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 5px;
         border-radius: 10px;
         transition: 1s;
     }
-    .navigationManual{
-        position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
+    .navigationManual {
+        position: absolute; /* NOVO */
+        /* top: 520px; NOVO */
+        /*  z-index: -1;  */ /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */
+        width: 80%;
         margin-top: -90px;
         display: flex;
         justify-content: center;
@@ -281,7 +283,7 @@
         margin-right: 5px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 5px;
         border-radius: 10px;
         cursor: pointer;
@@ -302,17 +304,17 @@
         margin-right: 5px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
-        margin-top: -100px;
+        /* top: 520px;                                        NOVO */
+        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
+        width: 80%;
+        margin-top: 200px;
         display: flex;
         justify-content: center;
     }
@@ -320,7 +322,7 @@
         margin-right: 5px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         cursor: pointer;
@@ -341,17 +343,17 @@
         margin-right: 5px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 5px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
-        margin-top: -90px;
+        /* top: 520px;                                        NOVO */
+        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
+        width: 80%;
+        margin-top: 210px;
         display: flex;
         justify-content: center;
     }
@@ -359,7 +361,7 @@
         margin-right: 5px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 5px;
         border-radius: 10px;
         cursor: pointer;
@@ -380,17 +382,17 @@
         margin-right: 5px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
-        margin-top: -100px;
+        /* top: 520px;                                        NOVO */
+        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
+        width: 80%;
+        margin-top: 200px;
         display: flex;
         justify-content: center;
     }
@@ -398,7 +400,7 @@
         margin-right: 5px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         cursor: pointer;
@@ -419,17 +421,17 @@
         margin-right: 5px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
+        /* top: 520px;                                        NOVO */
        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
        width: 80%;
-        margin-top: -100px;
+        margin-top: 200px;
         display: flex;
         justify-content: center;
     }
@@ -437,7 +439,7 @@
         margin-right: 5px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         cursor: pointer;
@@ -458,17 +460,17 @@
         margin-right: 1px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
-        margin-top: -110px;
+        /* top: 520px;                                        NOVO */
+        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
+        width: 80%;
+        margin-top: 190px;
         display: flex;
         justify-content: center;
     }
@@ -476,7 +478,7 @@
         margin-right: 1px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         cursor: pointer;
@@ -497,17 +499,17 @@
         margin-right: 1px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
-       /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
-       width: 80%;
-        margin-top: -120px;
+        /* top: 520px;                                        NOVO */
+        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
+        width: 80%;
+        margin-top: 180px;
         display: flex;
         justify-content: center;
     }
@@ -515,7 +517,7 @@
         margin-right: 1px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 3px;
         border-radius: 10px;
         cursor: pointer;
@@ -536,17 +538,17 @@
         margin-right: 1px;
     }
     .navigationAuto div{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 2px;
         border-radius: 10px;
         transition: 1s;
     }
     .navigationManual{
         position: absolute;                               /* NOVO */
-        top: 520px;                                        /* NOVO */
+        /* top: 520px;                                        NOVO */
        /*  z-index: -1;  */                                       /*  NOVO  -> coloca pra trás do menu mas impede marcar a bolinha */ 
        width: 80%;
-        margin-top: -130px;
+        margin-top: 170px;
         display: flex;
         justify-content: center;
     }
@@ -554,10 +556,17 @@
         margin-right: 1px;
     }
     .manual-btn{
-        border: 2px solid #40D3DC;
+        border: 2px solid rgb(240, 205, 6);
         padding: 2px;
         border-radius: 10px;
         cursor: pointer;
         transition: 1s;
     }
 }
+
+@media screen and (min-width:1100px) and (max-width:1239px) {
+    .nnavigationManual {
+        margin-top: 50px;
+    }
+}
+

@@ -29,38 +29,38 @@
                     <li class="principal"><a href="{% url 'menu' %}">Início</a></li>
                     
                     <li class="principal"><a href="{% url 'programacao' event.slug %}">Programação</a></li>
-                    <li class="principal"><a >Aglomeração de Saberes</a>
+                    <li class="principal"><a>Aglomeração de Saberes</a>
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
-                                    <li class="bigger"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                    <li class="hover submenu"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover bigger"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover submenu"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
-                    <li class="principal"><a >Do Tempo do Ronca</a>
+                    <li class="principal"><a>Do Tempo do Ronca</a>
                         <ul>
-                            <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
-                            <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
-                            <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
+                            <li class="hover submenu"><a href="{% url 'historia' event.slug %}">História</a></li>
+                            <li class="hover submenu"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
+                            <li class="hover submenu"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                         </ul>
                     </li>
                     <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
                     <li class="principal"><a href="{% url 'desopilar' event.slug %}">Bora Desopilar?</a></li>
                      
-                    <li class="principal"><a >{{user_name}}</a>
+                    <li class="principal"><a>{{user_name}}</a>
                         <ul>
                             
-                            <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
+                            <li class="hover submenu"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <button class="botao" type="submit">Sair</button>
+                                    <button class="hover botao" type="submit">Sair</button>
                                 </form>
                             </li>
                             {% if request.user.is_superuser %}
-                                <li> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
+                                <li class="hover submenu"> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
                             {% endif %}
                             
                         </ul>
@@ -74,6 +74,7 @@
             </nav>
         </div>
     </header>
+    
     <div class="audio">
         <audio id="hall-song" controls loop>
             <source src="{% static 'music/escadaria-roberto.mp3' %}" type="audio/mp3"> 

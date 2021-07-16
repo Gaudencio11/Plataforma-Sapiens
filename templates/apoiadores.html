@@ -35,17 +35,17 @@
                         <ul>
                             {% for room in rooms %}
                                 {% if room.slug != 'sapiens-familia' %}
-                                    <li class="bigger"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
+                                    <li class="hover submenu"><a href="{% url 'days' event.slug room.slug %}">{{room.name}}</a></li>
                                 {%endif%}
                             {% endfor %}
-                            <li class="hover bigger"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
+                            <li class="hover submenu"><a href="{% url 'apoiadores' event.slug %}">Equipe Apoiadora</a></li> 
                         </ul>
                     </li>
                     <li class="principal"><a>Do Tempo do Ronca</a>
                         <ul>
-                            <li class="hover"><a href="{% url 'historia' event.slug %}">História</a></li>
-                            <li class="hover"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
-                            <li class="hover"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
+                            <li class="hover submenu"><a href="{% url 'historia' event.slug %}">História</a></li>
+                            <li class="hover submenu"><a href="{% url 'edicoes_sapiens' event.slug %}">Edições Sapiens</a></li>
+                            <li class="hover submenu"><a href="{% url 'padlet' event.slug 'dois' 'mural' %}">Edição Atual</a></li>
                         </ul>
                     </li>
                     <li class="principal"><a href="{% url 'days' event.slug 'sapiens-familia' %}">Sapiens Família</a></li>  
@@ -54,15 +54,15 @@
                     <li class="principal"><a>{{user_name}}</a>
                         <ul>
                             
-                            <li class="hover"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
+                            <li class="hover submenu"><a href="{% url 'account_reset_password' %}">Redefinir senha</a></li>
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <button class="botao" type="submit">Sair</button>
+                                    <button class="hover botao" type="submit">Sair</button>
                                 </form>
                             </li>
                             {% if request.user.is_superuser %}
-                                <li> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
+                                <li class="hover submenu"> <a href="http://sapiens10anos.unipe.edu.br/admin/">Sala do Administrador</a></li>
                             {% endif %}
                             
                         </ul>
@@ -142,16 +142,6 @@
             </a>
             <div class="description-container ">
                 <p class="name ">Prof. Dr. Carlos Rodrigues Brandão</p>
-
-            </div>
-        </div>
-
-        <div class="container">
-            <a href="https://www.instagram.com/fabianomourademoura/">
-                <img src="{% static 'images/apoiadores/@fabianomourademoura.jpg' %}" alt="" class="responsive-img">
-            </a>
-            <div class="description-container ">
-                <p class="name ">Prof. Esp. Fabiano Moura de Moura</p>
 
             </div>
         </div>
@@ -494,18 +484,18 @@
 
     </div>
 
-
-
+    <!--Footer-->
     <footer>
         <div class="footer-container">
             <div class="sec quickLinks">
-                <h2>Patrocinadores</h2>
+                <h2>Parceiros</h2>
                 <ul class="patrocinador-lista">
+                    <li><a href="https://wa.me/558331333473" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/hemocentro.png' %}" alt="Logo da Hemocentro: Educação pela Saúde"></a></li>
+
                     <li><a href="https://instagram.com/atelierdocebia?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/atelier-doce-bia.png'%}" alt="Logo do Patrocinador Atelier Doce Bia"></a></li>
 
                     <li><a href="https://api.whatsapp.com/send?phone=5583998280859&text=Oi%2C%20vim%20pela%20Sapiens!" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/bichos-e-caprichos.png' %}" alt="Logo do Patrocinador Bichos e Caprichos"></a></li>
 
-                    <li><a href="https://instagram.com/ferrazemaul?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/ferraz-e-maul-assessoria.png' %}" alt="Logo do Patrocinador Ferraz e Maul"></a></li>
 
                     <li><a href="https://wa.me/message/M6TRUVSLVS76B1" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/livraria-do-luiz.png' %}" alt="Logo do Patrocinador Livraria do Luiz"></a></li>
 
@@ -519,17 +509,16 @@
 
                     <li><a href="https://www.instagram.com/diporte_/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/diporte.png'%}" alt="Logo do Patrocinador Diporte"></a></li>
 
-                    <li><a href="http://somoslema.com.br/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/lema-engenharia.png'%}" alt="Logo do Patrocinador Lema Engenharia"></a></li>
-
                     <li><a href="https://instagram.com/drtnt?utm_medium=copy_link" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/dr-tnt.png'%}" alt="Logo do Patrocinador Dr. TNT"></a></li>
 
                     <li><a href="https://www.instagram.com/saudemedica/" target="_blank"><img class="patrocinador-img" src="{% static 'images/patrocinadores/saude-medica.png'%}" alt="Logo do Patrocinador Saúde Médica"></a></li>
                 </ul>
             </div>
-            <div class="hemocentro-div">
-                <h2>Ajude o hemocentro</h2>
-                <a href="https://wa.me/558331333473" target="_blank"><img id="hemocentro" src="{% static 'images/patrocinadores/hemocentro.png' %}" alt="Logo da Hemocentro: Educação pela Saúde" ></a>
+            <div class="bigPatrocinador-div">
+                <a href="https://instagram.com/ferrazemaul?utm_medium=copy_link" target="_blank"><img class="bigPatrocinador" src="{% static 'images/patrocinadores/ferraz-e-maul-assessoria.png' %}" alt="Logo do Patrocinador Ferraz e Maul"></a>
+                <a href="http://somoslema.com.br/" target="_blank"><img class="bigPatrocinador" src="{% static 'images/patrocinadores/lema-engenharia.png' %}" alt="Logo do Patrocinador Lema Engenharia"></a>
             </div>
+
             <div class="sec contact">
                 <h2>Informações para Contato</h2>
                 <ul class="info">
@@ -538,14 +527,16 @@
                         <span>Rodovia BR-230,KM 22, S/N - Água Fria, João Pessoa</span>
                     </li>
                     <ul class="contato">
-                        <li><span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <li>
+                            <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             <p><a href="mailto:unipemailunipemail@email.com">sapiens10anos@unipe.edu.br</a></p>
                         </li>
-    
-                        <li><span><i class="fa fa-whatsapp" aria-hidden="true"></i></span>
+
+                        <li>
+                            <span><i class="fa fa-whatsapp" aria-hidden="true"></i></span>
                             <p><a href="https://wa.me/message/44GXA6IAP4MOL1" target="_blank">Whatsapp</a></p>
                         </li>
-    
+
                         <ul class="sci">
                             <li><a href="https://www.facebook.com/unipeoficial" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="https://twitter.com/unipeoficial" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -556,7 +547,7 @@
                 </ul>
             </div>
         </div>
-      </footer>
+    </footer>
     <div class="copyrightText ">
         <p>© 2021 Todos os direitos reservados.</p>
     </div>

@@ -1,6 +1,8 @@
 # Plataforma-Sapiens
 Plataforma de Eventos. Desenvolvido em 2021.1 
 
+Minha função na equipe desse projeto foi de backend
+
 Projeto configurado para rodar em ambiente heroku e localmente
 
 = Para rodar localmente:

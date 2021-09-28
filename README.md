@@ -10,6 +10,7 @@ Projeto configurado para rodar em ambiente heroku e localmente
 - comando py manage.py migrate
 - comando py manage.py runserver
 - Adicionar email e senha a serem usados em "pagina_pricipal/core/settings/base.py"
+
 (todos os comandos precisam ser rodados no diretório raiz e com a venv ativada)
 
 =Para rodar no heroku:

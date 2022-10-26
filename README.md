@@ -1,7 +1,7 @@
 # Plataforma-Sapiens
 Plataforma de Eventos. Desenvolvido em 2021.1 
 
-Minha função na equipe desse projeto foi de backend
+Fui o único desnvolvedor Backend desse projeto, tomando todas as decisões de arquitetura e de estratégias, além de realizar o deploy da aplicação no Heroku e em Servidor Linux Debian.
 
 Projeto configurado para rodar em ambiente heroku e localmente
 

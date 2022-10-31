@@ -1,0 +1,3 @@
+*.html linguist-detectable=false
+*.django linguist-detectable=true
+*.js linguist-detectable=false
